@@ -1,0 +1,14 @@
+name: ubinaire CI/CD workflow
+on: [push]
+jobs:
+
+  prepare-workspace:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repo code
+        uses: actions/checkout@v3
+      - name: Install  dependencies
+        run: npm install
+      - name: start the app
+        run: npm start
+
