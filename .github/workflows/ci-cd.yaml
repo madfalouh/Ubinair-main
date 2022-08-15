@@ -1,14 +1,14 @@
-name: ubinaire CI/CD workflow
-on: [push]
-jobs:
+name: ci-setup
 
-  prepare-workspace:
-    runs-on: self-hosted
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo code
-        uses: actions/checkout@v3
-      - name: Install  dependencies
+        uses: actions/checkout@v2
+      - name: Install dependencies
         run: npm install
-      - name: start the app
-        run: npm start
-
+      - name: Run unit tests
+        run: npm run test
