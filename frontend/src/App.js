@@ -98,8 +98,8 @@ console.log((isRefresh.toString()==="true"   )  );
 
     return (
         <div>
-            <section className="flex  justify-center items-center  min-h-screen bg-gradient-to-b from-[#110A19] to-[#321d48] bg-cover bg-center bg-fixed p-12 "  >
-                <Nav />
+         
+         
                 <ToastContainer />
                 <Background  circles={25} />
                 <>
@@ -142,7 +142,7 @@ console.log((isRefresh.toString()==="true"   )  );
                         <Route path="/search/:keyword"  element={<Profile/>} />
                     </Routes>
                 </>
-            </section>
+   
             <Footer />
         </div>
     )
