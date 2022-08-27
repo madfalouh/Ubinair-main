@@ -349,7 +349,7 @@ transform: translateX(-110%);
 .sidenav {
 position: absolute;
 left: -1%; 
-  height: 100%;
+height: 100%;
 backdrop-filter: blur(89px);
 border-radius: 25px;
   display: -webkit-box;
@@ -379,6 +379,8 @@ border-radius: 25px;
 .sidenav.is-collapsed #main-logo {
 padding-bottom: 200%;
 }
+
+
 
 .sidenav.is-collapsed #project-logo {
 padding-bottom: 50%;
@@ -424,6 +426,7 @@ margin-left: 50%;
 }
 
 .nav {
+  z-index: 10000;
   overflow: hidden;
   overflow-y: auto;
   scrollbar-color: #FFFF transparent;
@@ -574,3 +577,249 @@ margin-left: 50%;
   margin-top: 1rem;
 }
 
+
+
+.dashboard-text {
+
+z-index: -999;
+
+position: absolute;
+width: 239px;
+height: 50px;
+left: 158px;
+top: 88px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 800;
+font-size: 41px;
+line-height: 50px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.projects {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 165px;
+height: 62px;
+
+
+background: rgba(139, 102, 181, 0.113);
+backdrop-filter: blur(114.1px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 33px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+}
+
+.search-box {
+width: 917px;
+height: 62px;
+background: rgba(139, 102, 181, 0.113);
+backdrop-filter: blur(114.1px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 33px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 200;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+color: rgba(255, 255, 255, 0.16);
+}
+
+
+.float-child {
+    width: 30%;
+    float: left;
+    
+}  
+
+
+
+
+
+.header-element {
+position: absolute;
+left: 158px;
+top: 193px;
+z-index: -9999;
+
+}
+
+
+.todo-list {
+width: 357px;
+height: 594px;
+background: rgba(139, 102, 181, 0.113);
+backdrop-filter: blur(114.1px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 33px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 37px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+
+
+}
+
+.first-section {
+
+
+
+margin-left: 53%;
+
+}
+
+.body-elements {
+
+z-index: -100;
+
+position: absolute;
+display: flex;
+width: auto;
+right: 1000px;
+top: 310px;
+}
+
+.flex-child {
+    flex: 1;
+
+}  
+
+.flex-child:first-child {
+   
+margin-right:6%;
+
+} 
+
+
+.project-card {
+
+  margin: auto;
+
+width: 629px;
+height: 330px;
+
+
+background: rgba(139, 102, 181, 0.113);
+backdrop-filter: blur(114.1px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 33px;
+
+}
+
+
+#add {
+
+display: flex;
+
+align-items: center;
+
+
+justify-content: center;
+
+}
+
+.project-name{
+padding-top: 3%;
+margin-left: 6%;
+white-space: nowrap;
+width: 439px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 800;
+font-size: 41px;
+
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+
+
+}
+
+.status-section {
+
+
+display: block;
+margin-top: 3%;
+
+margin-left: 6%;
+
+}
+
+
+
+.name {
+padding-top: 5px;
+padding-bottom: 5px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 200;
+font-size: 24px;
+line-height: 29px;
+
+
+color: #FFFFFF;
+}
+
+.not-yet {
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 200;
+font-size: 24px;
+line-height: 29px;
+
+
+color: #FFE600;
+
+}
+
+.branding {
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 200;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.cards {
+
+
+
+display: grid;
+gap: 33px;
+grid-template-columns: 1fr 1fr;
+
+}

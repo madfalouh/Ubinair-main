@@ -30,6 +30,8 @@ import { ToastContainer } from 'react-toastify'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import EditUser from './pages/EditUser/EditUser'
+import Project from './pages/Auth/Projects'
+
 
 function App() {
     AOS.init()
@@ -105,6 +107,7 @@ console.log((isRefresh.toString()==="true"   )  );
                     <Routes>
                         <Route path="/*" element={<Home />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/projects" element={<Project />} />
                         <Route
                             path="/register"
                             element={userInfo ? <Profile /> : <Register />}
