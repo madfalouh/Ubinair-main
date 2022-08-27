@@ -10,7 +10,7 @@ import { dispatchToken } from '../../redux/actions/tokenAction'
 import  Vector from  '../../img/Vector.png'
 import lol from  '../../img/lol.png'
 import google from '../../img/google.png'
-
+import Sidebar from '../../components/sidebar'
 
 const initialState = {
     email: '',
@@ -160,9 +160,18 @@ nextButtonRef.current.textContent = "Next"
 
     return (
         <div>
+   
+
+
+
+
+
+
+
+
     <div class="all">
         <div class="logo">
-            <img src={Vector} /> 
+           
         </div>
 
         <p class="back"  ref={backRef}  onClick={handleBack} > ⬅ Back </p>
@@ -170,9 +179,9 @@ nextButtonRef.current.textContent = "Next"
                 <div class="login-form"  ref={firstLayer} >
 
                     <p class="title"> Hello ! </p>
-                    <label for="email" class="email">Email</label>
+                    <label for="email" class="email" id='label' >Email</label>
                     <input type="text" className='input-field'/> 
-                    <label for="Password" class="password">Password</label>
+                    <label for="Password" class="password"  id='label'>Password</label>
                     <input type="text" className='input-field'/> 
                     <p className='forgot-password'>forgot password ?</p>
                     <br/> 
@@ -246,7 +255,7 @@ nextButtonRef.current.textContent = "Next"
                 <div class="second-layer" id="second-layer" ref={secondLayer} >
 
                     <p class="no-account">Dont have an Acount ?</p>
-
+                       <br/>
                     <button class="sign-in" id="sign" onClick={handleMoveSignUp}  ref={buttonRef} >Sign up</button>
 
                 </div>

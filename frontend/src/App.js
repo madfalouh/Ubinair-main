@@ -99,7 +99,6 @@ console.log((isRefresh.toString()==="true"   )  );
     return (
         <div>
          
-         
                 <ToastContainer />
                 <Background  circles={25} />
                 <>
@@ -143,7 +142,7 @@ console.log((isRefresh.toString()==="true"   )  );
                     </Routes>
                 </>
    
-            <Footer />
+       
         </div>
     )
 }
