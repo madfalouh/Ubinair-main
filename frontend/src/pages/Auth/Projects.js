@@ -25,14 +25,13 @@ Projects
 </div>
 </div>
 
- <div className='body-elements' >
+ <div className='body-elements flex-child' >
 
 
-<div className='first-section flex-child'>
+<div className='first-section '>
 <div className='cards'  >
 <ProjectCard></ProjectCard>
 <ProjectCard></ProjectCard>
-<AddCard></AddCard>
 </div>
 
 
@@ -43,14 +42,7 @@ Projects
 
 <div  className='todo-list' >My to do list</div>
 
-
-
-
 </div>
-
-
-
-
 </div>
 
 

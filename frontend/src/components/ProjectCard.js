@@ -1,11 +1,11 @@
 import { useEffect } from "react"
-
+import cirle from '../img/circle.png'
 
 
 export default function ProjectCard() {
 
 
-
+console.log(window.innerWidth);
 
 
 
@@ -18,6 +18,29 @@ return (
     
 <p  className="name" >Service :<span  className="branding" >Branding</span>  </p> 
         </div>
+
+<div className="bottom-section">
+
+<div className=" float-child bottom-left">
+<img  src={cirle}  />
+
+<p className="details" > More details </p>
+</div>
+
+
+
+
+<div className=" float-child bottom-right">
+
+<div  className="progress-bar"  >
+</div>
+<p className="deadline" > Deadline in 9 days </p>
+</div>
+
+
+
+
+</div>
 
 
 </div>
