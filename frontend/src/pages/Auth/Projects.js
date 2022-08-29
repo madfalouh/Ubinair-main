@@ -4,9 +4,20 @@ import Sidebar from '../../components/sidebar'
 import AddCard from '../../components/AddCard'
 
 
-const project = () => {
-  
+const Project = () => {
+const cardRef = useRef()
 
+useEffect (()=> {
+
+
+const nodes = cardRef.current.childNodes[0]
+
+
+
+console.log(nodes.childNodes[2]);
+nodes.style.width=1300 +'px'
+nodes.childNodes[2].style.marginTop=-10 +'px'
+}, [] )
     return (
         <div  className='project-containar' >
   <Sidebar></Sidebar>
@@ -28,10 +39,10 @@ Projects
  <div className='body-elements flex-child' >
 
 
-<div className='first-section '>
-<div className='cards'  >
-<ProjectCard></ProjectCard>
-<ProjectCard></ProjectCard>
+<div className='first-section ' >
+<div className='cards' ref={cardRef} >
+<ProjectCard   ></ProjectCard>
+
 </div>
 
 
@@ -56,4 +67,4 @@ Projects
     )
 }
 
-export default project
+export default Project

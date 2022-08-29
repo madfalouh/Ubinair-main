@@ -5,7 +5,7 @@ import cirle from '../img/circle.png'
 export default function ProjectCard() {
 
 
-console.log(window.innerWidth);
+
 
 
 
