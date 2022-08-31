@@ -14,7 +14,9 @@ import navLogo4 from '../img/nav4.png'
 
 import navLogo5 from '../img/nav5.png'
 
-export default function Sidebar() {
+export default function Sidebar({el}) {
+
+
 
 
 useEffect ( ()=> {
@@ -24,8 +26,23 @@ toggle()
 
 
 const  toggle = ()=> {
+
   var element = document.getElementById("sidenav");
   element.classList.toggle("is-collapsed");
+
+if(element.classList.contains("is-collapsed") ) {
+el.current.style.marginLeft="0%"
+//el.proj.current.style.marginLeft="5%"
+
+console.log("5%");
+
+}else{
+el.current.style.marginLeft="15%"
+//el.dash.current.style.marginLeft="5%"
+//el.proj.current.style.marginLeft="5%"
+}
+
+console.log(el);
 }
 
 return (

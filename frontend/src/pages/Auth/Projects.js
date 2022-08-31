@@ -7,6 +7,11 @@ import AddCard from '../../components/AddCard'
 
 const Project = () => {
 const cardRef = useRef()
+const addRef = useRef()
+const bodyRef = useRef()
+const dashRef = useRef()
+const proRef = useRef()
+
 const [projectCards , setCards] = useState([])
 
 
@@ -25,11 +30,16 @@ useEffect (()=> {
 
 
 
+
+
+
 console.log(projectCards.length);
 if(cardRef.current.childNodes[0] !=undefined){
 
 if(projectCards.length <=1 ) {
+console.log(addRef.current);
 
+addRef.current.style.width ='529px'
 console.log("1st");
 const nodes = cardRef.current.childNodes[0]
 
@@ -106,11 +116,14 @@ cardRef.current.style.gridTemplateColumns = 1 +'fr'  + ' ' +1 + 'fr'
 }
 
     return (
-        <div  className='project-containar'   >
-  <Sidebar></Sidebar>
-<button onClick={hundleClick}>Tedfgdfgfdgdfgfdgst</button>
 
- <p  className='dashboard-text' onclick={() => { console.log("button clicked");}} > Dashboard </p>
+        <div  className='project-containar'   >
+ 
+ <Sidebar el={dashRef} ></Sidebar>
+
+ 
+ <div className='container' ref={dashRef} >
+ <p  className='dashboard-text' > Dashboard </p>
  <div className='header-element' >
  <div class="float-child">
 <div className='projects'>
@@ -125,7 +138,7 @@ Projects
 </div>
 </div>
 
- <div className='body-elements ' >
+ <div className='body-elements'  ref={bodyRef} >
 
 
 <div className='first-section flex-child' >
@@ -133,7 +146,9 @@ Projects
 
 {projectCards}
 
-
+<div ref={addRef} onClick={hundleClick} >
+<AddCard   ></AddCard>
+</div>
 
  
 </div>
@@ -153,7 +168,7 @@ Projects
 
 
 
-
+</div>
 
 
    </div>

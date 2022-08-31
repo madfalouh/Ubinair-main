@@ -385,6 +385,7 @@ padding-bottom: 200%;
 
 
 
+
 .sidenav.is-collapsed #project-logo {
 padding-bottom: 50%;
 }
@@ -585,11 +586,10 @@ margin-left: 50%;
 .dashboard-text {
 
 
-
-position: absolute;
+position: relative;
+margin-left: 8%;
 width: 239px;
-height: 50px;
-left: 158px;
+
 top: 88px;
 
 font-family: 'Montserrat';
@@ -605,6 +605,7 @@ color: #FFFFFF;
 }
 
 .projects {
+
 display: flex;
 align-items: center;
 justify-content: center;
@@ -660,7 +661,7 @@ color: rgba(255, 255, 255, 0.16);
 
 .header-element {
 position: absolute;
-left: 158px;
+left: 358px;
 top: 193px;
 
 
@@ -691,12 +692,10 @@ color: #FFFFFF;
 
 .body-elements {
 
-
 position: absolute;
 display: flex;
 width:100%;
 margin-left: 5%;
-
 margin-top: 17%;
 
 }
@@ -800,7 +799,7 @@ height: 500px;
 
 margin-top: 21%;
   
-   
+  
    
 
 }
@@ -983,3 +982,7 @@ margin-top: 6%;
 
 }
 
+.add {
+cursor: pointer;
+
+}
