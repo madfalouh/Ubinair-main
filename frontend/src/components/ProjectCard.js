@@ -33,6 +33,7 @@ return (
 <div className=" float-child bottom-right">
 
 <div  className="progress-bar"  >
+100%
 </div>
 <p className="deadline" > Deadline in 9 days </p>
 </div>
