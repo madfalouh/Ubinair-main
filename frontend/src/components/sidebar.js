@@ -26,22 +26,15 @@ toggle()
 
 
 const  toggle = ()=> {
-
-  var element = document.getElementById("sidenav");
-  element.classList.toggle("is-collapsed");
-
+var element = document.getElementById("sidenav");
+element.classList.toggle("is-collapsed");
 if(element.classList.contains("is-collapsed") ) {
 el.current.style.marginLeft="0%"
-//el.proj.current.style.marginLeft="5%"
-
-console.log("5%");
 
 }else{
-el.current.style.marginLeft="15%"
-//el.dash.current.style.marginLeft="5%"
-//el.proj.current.style.marginLeft="5%"
-}
+el.current.style.marginLeft="9%"
 
+}
 console.log(el);
 }
 

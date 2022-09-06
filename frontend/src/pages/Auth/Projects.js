@@ -147,7 +147,7 @@ Projects
 {projectCards}
 
 <div ref={addRef} onClick={hundleClick} >
-<AddCard   ></AddCard>
+<AddCard ></AddCard>
 </div>
 
  
