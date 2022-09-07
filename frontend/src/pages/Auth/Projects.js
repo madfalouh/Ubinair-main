@@ -95,7 +95,7 @@ const nodes = cardRef.current.childNodes[0]
 
 
 
-nodes.style.width=629 +'px'
+nodes.style.width=600 +'px'
 const bottomSection = nodes.childNodes[2]
 if(bottomSection!=undefined) {
 bottomSection.style.marginTop = 40 +'px'
@@ -108,7 +108,7 @@ details.style.marginLeft =40 +'px'
 deadline.style.marginLeft =30 +'px'
 deadline.style.marginTop =-120 +'px'
 
-cardRef.current.style.gridTemplateColumns = 1 +'fr'  + ' ' +1 + 'fr'
+cardRef.current.style.gridTemplateColumns = 629 +'px'  + ' ' +629 + 'px'
 
 
 

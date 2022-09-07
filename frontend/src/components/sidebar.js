@@ -31,7 +31,7 @@ element.classList.toggle("is-collapsed");
 if(element.classList.contains("is-collapsed") ) {
 el.current.style.marginLeft="0%"
 card.current.style.width="1300px"
-cards.current.style.width="1320px"
+cards.current.style.width="1360px"
 
 const nodes = card.current.childNodes[0]
 
@@ -56,10 +56,14 @@ deadline.style.marginTop =-120 +'px'
 } else{
 
 
+console.log(cards.current.childNodes[0]);
 
+
+
+second.current.style.marginLeft="3%"
 
 console.log(cards.current.childNodes[0]);
-second.current.style.marginLeft="1%"
+
 
 }
 
@@ -93,11 +97,11 @@ deadline.style.marginTop =-120 +'px'
 }
 else {
 
-cards.current.style.width="1300px"
+cards.current.style.width="1260px"
 console.log(cards.current.childNodes[0]);
 
-cards.current.childNodes[0].style.gap="10px"
-second.current.style.marginLeft="-3%"
+
+second.current.style.marginLeft="-2%"
 
 }
 
