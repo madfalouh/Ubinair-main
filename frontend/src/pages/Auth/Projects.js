@@ -47,8 +47,8 @@ const nodes = cardRef.current.childNodes[0]
 
 i.current=1
 
-
-
+cardsRef.current.style.width="1400px"
+secondRef.current.style.marginLeft="-1%"
 nodes.style.width=1300 +'px'
 
 const bottomSection = nodes.childNodes[2]
@@ -88,6 +88,8 @@ const temp = [...projectCards]
 temp.push(<ProjectCard></ProjectCard>)
 setCards(temp)
 i.current=2
+
+cardsRef.current.style.width="1285px"
 
 const nodes = cardRef.current.childNodes[0]
 

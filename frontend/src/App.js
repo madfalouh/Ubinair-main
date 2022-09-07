@@ -56,10 +56,7 @@ function App() {
   useEffect(() => {
         const isRefresh =sessionStorage.getItem("is_reloaded") ;
         const token=localStorage.getItem("token")
-          
      if ( isRefresh!=null && isRefresh.toString()==="true" && token!==null ) {
-console.log((isRefresh.toString()==="true"   )  ); 
-    console.log("jksdfjkdsfjksdfjkdfs");
     dispatch(dispatchGetUser(token))
         }
     }, [])
@@ -73,7 +70,7 @@ console.log((isRefresh.toString()==="true"   )  );
         const firstLogin = localStorage.getItem('firstLogin')
         const isRefresh =sessionStorage.getItem("is_reloaded") ;
         console.log(isRefresh);
-        if (firstLogin && isRefresh==null || isLogin.toString()=="true") {
+        if (firstLogin && isRefresh==null || isLogin!=null &&  isLogin.toString()==="true") {
            console.log("hththr"+isLogin);
             dispatch(dispatchToken())
         }
@@ -84,7 +81,7 @@ console.log((isRefresh.toString()==="true"   )  );
     useEffect(() => {
     const isLogin=  localStorage.getItem("isLogin") 
      const isRefresh =sessionStorage.getItem("is_reloaded") ;
-        if (token && isRefresh==null || isLogin.toString()=="true") {
+        if (token && isRefresh==null || isLogin!=null && isLogin.toString()==="true") {
             
             //    dispatch(dispatchLogin()); //WE GOT  logged change to false so we transfer it to true
             //Get user information cuz after get token useeffecr re compile and get error mn dispatchLogin

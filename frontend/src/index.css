@@ -353,6 +353,7 @@ transform: translateX(-110%);
 
 
 .sidenav {
+overflow: hidden;
 position: absolute;
 left: -1%; 
 height: 100%;
@@ -380,10 +381,12 @@ border-radius: 25px;
 
 .sidenav.is-collapsed {
   width: 4.5rem;
+overflow: hidden;
 }
 
 .sidenav.is-collapsed #main-logo {
 padding-bottom: 200%;
+overflow: hidden;
 }
 
 
@@ -391,14 +394,17 @@ padding-bottom: 200%;
 
 .sidenav.is-collapsed #project-logo {
 padding-bottom: 50%;
+overflow: hidden;
 }
 
 .sidenav.is-collapsed #equipe-logo {
 padding-bottom: 48%;
+overflow: hidden;
 }
 
 .sidenav.is-collapsed #calendar-logo {
 padding-bottom: 200%;
+overflow: hidden;
 }
 
 
@@ -425,6 +431,7 @@ margin-left: 50%;
 }
 
 .sidenav__nav {
+overflow: hidden;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -435,7 +442,7 @@ margin-left: 50%;
 .nav {
 
   overflow: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   scrollbar-color: #FFFF transparent;
   scrollbar-width: thin;
   -webkit-transition: scrollbar-color 200ms;
@@ -959,6 +966,9 @@ margin-top: -31%;
 
 
 .deadline{
+
+background-color: linear-gradient(to right, rgba(147, 78, 57, 0.2) , rgba(102, 57, 147, 0.2)) ;
+
 width: 196px;
 height: 24px;
 justify-content: center;

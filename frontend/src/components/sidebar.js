@@ -31,14 +31,15 @@ element.classList.toggle("is-collapsed");
 if(element.classList.contains("is-collapsed") ) {
 el.current.style.marginLeft="0%"
 
-cards.current.style.width="1520px"
+
 
 const nodes = card.current.childNodes[0]
 
 console.log(card.current.childNodes.length);
 
 if(card.current.childNodes.length===2){
-
+cards.current.style.width="1350px"
+nodes.style.width=1300 +'px'
 nodes.style.width=1300 +'px'
 const bottomSection = nodes.childNodes[2]
 if(bottomSection!=undefined) {
@@ -52,10 +53,11 @@ details.style.marginLeft =40 +'px'
 deadline.style.marginLeft =30 +'px'
 deadline.style.marginTop =-120 +'px'
 
+
 }
 } else{
 
-
+cards.current.style.width="1320px"
 console.log(cards.current.childNodes[0]);
 
 
