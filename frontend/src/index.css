@@ -753,13 +753,13 @@ margin-right: 3%;
 
 
 
-
 height: 330px;
 
 
 background: rgba(139, 102, 181, 0.113);
 backdrop-filter: blur(114.1px);
 /* Note: backdrop-filter has minimal browser support */
+
 
 border-radius: 33px;
 
@@ -904,8 +904,7 @@ color: #FFFFFF;
 
 .cards {
 display: grid;
-gap: 10px;
-grid-template-columns: 1fr 1fr ;
+grid-row-gap : 30px ;
 }
 
 
