@@ -14,7 +14,7 @@ import navLogo4 from '../img/nav4.png'
 
 import navLogo5 from '../img/nav5.png'
 
-export default function Sidebar({el}) {
+export default function Sidebar({el , card ,cards , second}) {
 
 
 
@@ -30,9 +30,77 @@ var element = document.getElementById("sidenav");
 element.classList.toggle("is-collapsed");
 if(element.classList.contains("is-collapsed") ) {
 el.current.style.marginLeft="0%"
+card.current.style.width="1300px"
+cards.current.style.width="1320px"
+
+const nodes = card.current.childNodes[0]
+
+console.log(card.current.childNodes.length);
+
+if(card.current.childNodes.length===2){
+
+nodes.style.width=1300 +'px'
+const bottomSection = nodes.childNodes[2]
+if(bottomSection!=undefined) {
+bottomSection.style.marginTop = 0 +'px'
+const details = (bottomSection.childNodes[0]).childNodes[1]
+const progress = (bottomSection.childNodes[1]).childNodes[0]
+const deadline = (bottomSection.childNodes[1]).childNodes[1]
+//details.style.marginTop =0 +'px'
+progress.style.width =542 +'px'
+details.style.marginLeft =40 +'px'
+deadline.style.marginLeft =30 +'px'
+deadline.style.marginTop =-120 +'px'
+
+}
+} else{
+
+
+
+
+console.log(cards.current.childNodes[0]);
+second.current.style.marginLeft="1%"
+
+}
 
 }else{
 el.current.style.marginLeft="9%"
+
+cards.current.style.width="1250px"
+
+
+console.log(card.current.childNodes.length);
+
+const nodes = card.current.childNodes[0]
+
+
+
+if(card.current.childNodes.length===2){
+
+nodes.style.width=1100 +'px'
+const bottomSection = nodes.childNodes[2]
+if(bottomSection!=undefined) {
+bottomSection.style.marginTop = 10 +'px'
+const details = (bottomSection.childNodes[0]).childNodes[1]
+const progress = (bottomSection.childNodes[1]).childNodes[0]
+const deadline = (bottomSection.childNodes[1]).childNodes[1]
+//details.style.marginTop =0 +'px'
+progress.style.width =342 +'px'
+details.style.marginLeft =40 +'px'
+deadline.style.marginLeft =30 +'px'
+deadline.style.marginTop =-120 +'px'
+}
+}
+else {
+
+cards.current.style.width="1300px"
+console.log(cards.current.childNodes[0]);
+
+cards.current.childNodes[0].style.gap="10px"
+second.current.style.marginLeft="-3%"
+
+}
+
 
 }
 console.log(el);

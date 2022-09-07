@@ -182,10 +182,10 @@ nextButtonRef.current.textContent = "Next"
                     <label for="email" class="email" id='label' >Email</label>
                     <input type="text" className='input-field'/> 
                     <label for="Password" class="password"  id='label'>Password</label>
-                    <input type="text" className='input-field'/> 
+                    <input type="password" className='input-field'/> 
                     <p className='forgot-password'>forgot password ?</p>
                     <br/> 
-                    <button class="sign-in" id="confirm">Confirm</button>
+                    <button class="sign-in" id="confirm"  onClick={()=>{navigate('/projects')}} >Confirm</button>
                     <br/> <br/> 
                     <div class="line-container" id='orline' >
                         <div class="line"></div>

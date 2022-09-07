@@ -7,10 +7,12 @@ import AddCard from '../../components/AddCard'
 
 const Project = () => {
 const cardRef = useRef()
+const cardsRef = useRef()
 const addRef = useRef()
 const bodyRef = useRef()
 const dashRef = useRef()
-const proRef = useRef()
+const secondRef = useRef()
+const i = useRef()
 
 const [projectCards , setCards] = useState([])
 
@@ -43,6 +45,7 @@ addRef.current.style.width ='529px'
 console.log("1st");
 const nodes = cardRef.current.childNodes[0]
 
+i.current=1
 
 
 
@@ -84,7 +87,7 @@ console.log("click");
 const temp = [...projectCards]
 temp.push(<ProjectCard></ProjectCard>)
 setCards(temp)
-
+i.current=2
 
 const nodes = cardRef.current.childNodes[0]
 
@@ -119,7 +122,7 @@ cardRef.current.style.gridTemplateColumns = 1 +'fr'  + ' ' +1 + 'fr'
 
         <div  className='project-containar'   >
  
- <Sidebar el={dashRef} ></Sidebar>
+ <Sidebar el={dashRef}  card={cardRef}  cards={cardsRef}  second={secondRef} ></Sidebar>
 
  
  <div className='container' ref={dashRef} >
@@ -141,7 +144,7 @@ Projects
  <div className='body-elements'  ref={bodyRef} >
 
 
-<div className='first-section flex-child' >
+<div className='first-section flex-child' ref={cardsRef}  >
 <div className='cards' ref={cardRef} >
 
 {projectCards}
@@ -157,11 +160,31 @@ Projects
 </div>
 
 
-<div className='second-section flex-child'>
+<div className='second-section flex-child' ref={secondRef} >
 
-<div  className='todo-list' >My to do list</div>
+<div  className='todo-list' >
+
+ <p style={{paddingTop :20+'px'}} >My to do list</p>  
 
 </div>
+
+<div  className='contact' >
+
+<div  className='chat' >chat w/ PM</div>
+<div  className='call' >📞</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
 </div>
 
 

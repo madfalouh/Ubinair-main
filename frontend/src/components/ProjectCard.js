@@ -1,10 +1,11 @@
 import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import cirle from '../img/circle.png'
 
 
 export default function ProjectCard() {
 
-
+const navigat = useNavigate()
 
 
 
