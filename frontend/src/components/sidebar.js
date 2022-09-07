@@ -30,8 +30,8 @@ var element = document.getElementById("sidenav");
 element.classList.toggle("is-collapsed");
 if(element.classList.contains("is-collapsed") ) {
 el.current.style.marginLeft="0%"
-card.current.style.width="1300px"
-cards.current.style.width="1360px"
+
+cards.current.style.width="1520px"
 
 const nodes = card.current.childNodes[0]
 
@@ -80,7 +80,7 @@ const nodes = card.current.childNodes[0]
 
 
 if(card.current.childNodes.length===2){
-
+cards.current.style.width="1150px"
 nodes.style.width=1100 +'px'
 const bottomSection = nodes.childNodes[2]
 if(bottomSection!=undefined) {
@@ -93,6 +93,7 @@ progress.style.width =342 +'px'
 details.style.marginLeft =40 +'px'
 deadline.style.marginLeft =30 +'px'
 deadline.style.marginTop =-120 +'px'
+second.current.style.marginLeft="-1%"
 }
 }
 else {
