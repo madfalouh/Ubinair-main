@@ -1,0 +1,28 @@
+.FAQ-section {
+  margin-top: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FAQ-header {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.FAQ-main {
+  margin-top: 100px;
+}
+
+@media (max-width: 430px) {
+  .FAQ-section {
+    margin-top: 450px;
+  }
+  .FAQ-header {
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .FAQ-main {
+    margin-top: 50px;
+  }
+}

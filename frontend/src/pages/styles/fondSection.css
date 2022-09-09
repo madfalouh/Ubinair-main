@@ -1,0 +1,248 @@
+.fond-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 480px;
+  /* pointer-events: none; */
+}
+
+.fond-section-header {
+  font-size: 55px;
+  font-weight: 500;
+}
+
+.fond-section-main {
+  position: relative;
+  margin-top: 170px;
+  width: 1370px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.fond-section-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  margin: auto;
+  margin-top: 100px;
+  background-color: #27202e;
+  width: 1380px;
+  height: 500px;
+  border-radius: 88px;
+}
+
+.show-child-pic {
+  opacity: 1 !important;
+  filter: blur(5px);
+}
+
+.fond-image-bg {
+  opacity: 0;
+  border-radius: 88px;
+  background-image: url("../assets/childPic.svg");
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  transition: opacity 0.2s ease;
+}
+
+.fond-section-right {
+  width: 870px;
+  margin-left: 55px;
+  margin-bottom: 120px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fond-section-left {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fond-section-title {
+  font-size: 55px;
+  font-weight: 700;
+}
+
+.fond-section-text {
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: 200;
+  text-align: justify;
+}
+
+.fond-ubi-logo {
+  position: relative;
+  margin: 25px 0;
+  width: 60px;
+  /* pointer-events: auto; */
+}
+
+.fond-ubi-icons {
+  position: relative;
+  pointer-events: auto;
+}
+
+.fond-ubi-icons:hover > div {
+  width: 280px;
+}
+.fd-gd {
+  display: none;
+}
+.fond-ubi-logo-full {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  overflow: hidden;
+  width: 0px;
+  transition: all 0.5s;
+}
+
+.fondpic {
+  border-radius: 100px;
+  width: 308px;
+  height: 308px;
+  box-shadow: 0 50px 100px black;
+}
+
+.fond-section-mobile {
+  display: none;
+}
+
+@media (max-width: 1410px) {
+  .fond-section-right {
+    margin-left: 40px;
+  }
+  .fond-section-container {
+    width: 1280px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .fond-section {
+    margin-top: 300px;
+  }
+  .fond-section-container {
+    flex-direction: column-reverse;
+  }
+  .fond-section-container {
+    border-radius: 0;
+    margin-top: 80px;
+    height: 600px;
+  }
+  .show-child-pic {
+    min-width: 100%;
+  }
+  .fond-section-left {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  .fond-section-right {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 800px;
+  }
+  .fond-section-text {
+    font-size: 25px;
+  }
+  .fond-ubi-icons {
+    display: none;
+  }
+  .fond-image-bg {
+    min-width: 2000px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: -600px;
+  }
+  .fd-gd {
+    display: inline;
+  }
+  .fd-hb {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .fond-section-text {
+    font-size: 18px;
+    width: 600px;
+  }
+  .fond-section-container {
+    border-radius: 0;
+    margin-top: 80px;
+    height: 500px;
+  }
+  .fond-section-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .fondpic {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .fond-section-header {
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 500px;
+  }
+  .fond-section-main {
+    display: none;
+  }
+
+  .fond-section-mobile {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+}
+
+.fond-main-mobile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+  background: rgba(217, 217, 217, 0.1);
+  height: 350px;
+  width: 380px;
+  border-radius: 70px;
+}
+
+.fond-title-mobile {
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.fond-content-mobile {
+  text-align: justify;
+  font-weight: 300;
+  font-size: 11px;
+  width: 350px;
+  margin: 20px 0;
+}
+
+.fond-bg-mobile {
+  position: absolute;
+  background: rgba(217, 217, 217, 0.1);
+  top: 0;
+  width: 387;
+}
