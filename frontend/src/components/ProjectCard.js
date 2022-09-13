@@ -8,11 +8,17 @@ export default function ProjectCard() {
 const navigat = useNavigate()
 
 
+const hundledetails = () => {
+var element = document.getElementById("details");
+element.classList.toggle("collapsed");
+
+console.log("lol");
+}
 
 
 return (
 
-	<div className="project-card">
+	<div className="project-card" id="details" >
 	<p className="project-name" > Name of the Project  </p  >
     <div className="status-section">
    <p  className="name" >Status : <span  className="not-yet"  >not yet</span>   </p>  
@@ -23,9 +29,9 @@ return (
 <div className="bottom-section">
 
 <div className=" float-child bottom-left">
-<img  src={cirle}  />
+<img  src={cirle}  className="circles" />
 
-<p className="details" > More details </p>
+<p className="details"    onClick={hundledetails} > More details </p>
 </div>
 
 
@@ -42,6 +48,10 @@ return (
 
 
 
+</div>
+
+<div  className="consigne"    >
+ <p className="consigne-text" > Consigne</p> 
 </div>
 
 

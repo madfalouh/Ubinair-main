@@ -113,6 +113,18 @@ const Login = () => {
             secondLayer.current.classList.remove("return");
             secondLayer.current.classList.add("move");
   } else {
+
+            console.log(j);
+            if(j.current===1){
+                handleBack()
+}
+
+    
+  if(j.current===2) {
+ handleBack()
+ handleBack()
+}
+            backRef.current.style.display="none"
             registerLayer.current.style.display="none"
             firstLayer.current.style.display="flex"
             firstLayer.current.classList.add("move-login");
@@ -140,7 +152,7 @@ step3Ref.current.style.display="block"
 nextButtonRef.current.textContent="Confirm"
 }
 }
-const handleBack  = (e) => {
+const handleBack  = () => {
 j.current-- ; 
 console.log(j.current);
 if(j.current==0) {
