@@ -91,7 +91,7 @@ function App() {
     return (
         <div>
             <ToastContainer />
-            <Background circles={25} />
+         
             <>
                 <Routes>
                     <Route path="/*" element={<Home />} />

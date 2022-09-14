@@ -1,24 +1,28 @@
-import { useEffect } from "react"
+import classNames from 'classnames'
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import cirle from '../img/circle.png'
 
 
-export default function ProjectCard() {
+export default function ProjectCard({cards}) {
 
-const navigat = useNavigate()
+ const [open , setOpen] = useState(false)
 
 
 const hundledetails = () => {
-var element = document.getElementById("details");
-element.classList.toggle("collapsed");
-
-console.log("lol");
+cards.current.classList.remove("isopen")
+cards.current.classList.add("collapsed")
+cards.current.classList.add("isone")
+console.log(cards.current.classList);
+setOpen(true)
 }
 
 
 return (
 
-	<div className="project-card" id="details" >
+	<div className={ classNames("project-card" , {
+                    "collapsed" :open
+                })} >
 	<p className="project-name" > Name of the Project  </p  >
     <div className="status-section">
    <p  className="name" >Status : <span  className="not-yet"  >not yet</span>   </p>  

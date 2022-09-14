@@ -1,0 +1,537 @@
+.dashboard-text {
+    position: relative;
+    margin-left: 8%;
+    width: 239px;
+
+    top: 75px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 41px;
+    line-height: 50px;
+    /* identical to box height */
+
+    top: 50px;
+
+    color: #ffffff;
+}
+
+.projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 165px;
+    height: 62px;
+
+    background: rgba(139, 102, 181, 0.113);
+    backdrop-filter: blur(114.1px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 33px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.search-box {
+    width: 917px;
+    height: 62px;
+    background: rgba(139, 102, 181, 0.113);
+    backdrop-filter: blur(114.1px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 33px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.16);
+}
+
+.float-child {
+    width: 30%;
+    float: left;
+}
+
+.header-element {
+    margin-top: 5%;
+    margin-bottom: -12%;
+    margin-left: 15%;
+    gap: 5%;
+    display: grid;
+    grid-template-columns: 165px auto;
+}
+
+
+
+.todo-list {
+    width: 357px;
+
+    background: rgba(139, 102, 181, 0.113);
+    backdrop-filter: blur(114.1px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 33px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.body-elements {
+
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 75% 25%;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 14%;
+
+}
+
+.first-section {
+
+    height: 700px;
+    overflow-x: auto;
+}
+
+.first-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+.first-section::-webkit-scrollbar-track {
+    background: rgba(109, 65, 135, 0.56);
+    backdrop-filter: blur(30px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 41px;
+    transform: rotate(-90deg);
+}
+
+.first-section::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0);
+}
+
+
+.cards.collapsed{
+grid-template-columns: 1fr;
+}
+
+
+.cards.isopen{
+grid-template-columns: 600px 600px;
+}
+
+
+.cards.isone  .project-card .bottom-section {
+
+margin-top: 1px;
+
+}
+.cards.isone  .project-card .bottom-section .progress-bar {
+width: 185%;
+}
+.cards.isone  .project-card .bottom-section .deadline {
+width: 185%;
+}
+
+
+.cards.isone  .project-card .bottom-section {
+
+margin-top: 4px;
+
+}
+
+
+
+
+
+.project-card {
+    height: 330px;
+  
+    background: rgba(139, 102, 181, 0.113);
+    backdrop-filter: blur(114.1px);
+    /* Note: backdrop-filter has minimal browser support */
+
+
+
+
+    height: 330px;
+
+
+    background: rgba(139, 102, 181, 0.113);
+    backdrop-filter: blur(114.1px);
+    /* Note: backdrop-filter has minimal browser support */
+
+
+    border-radius: 33px;
+
+
+    transition: height 0.8s;
+}
+
+
+
+.project-card.collapsed {
+    height: 720px;
+    width: 100%;
+}
+
+
+
+.project-card .bottom-section {
+
+    margin-top: 40px;
+}
+
+.project-card.collapsed .bottom-section .bottom-left {
+
+    margin-top: 15%;
+
+
+}
+
+
+
+.project-card.collapsed .bottom-section .bottom-left .circles {
+
+    display: none;
+
+}
+
+.project-card.collapsed .bottom-section .bottom-right {
+
+    width: 20%;
+    margin-left: 20%;
+
+    margin-top: -10%;
+
+}
+
+
+
+.project-card .consigne {
+
+    display: none;
+
+}
+
+.project-card.collapsed .consigne {
+
+    margin-top: 15%;
+    margin-left: 3%;
+    display: flex;
+
+}
+
+.consigne {
+    background: rgba(75, 45, 114, 0.42);
+    box-shadow: 0px 528px 211px rgba(49, 33, 69, 0.01), 0px 297px 178px rgba(49, 33, 69, 0.03), 0px 132px 132px rgba(49, 33, 69, 0.04), 0px 33px 73px rgba(49, 33, 69, 0.05), 0px 0px 0px rgba(49, 33, 69, 0.05);
+    backdrop-filter: blur(60px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 33px;
+
+    width: 1150px;
+    height: 293px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 29px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+#add {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.project-name {
+    padding-top: 3%;
+    margin-left: 6%;
+    white-space: nowrap;
+    width: 439px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 41px;
+
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.status-section {
+    display: block;
+    margin-top: 3%;
+
+    margin-left: 6%;
+}
+
+.name {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #ffffff;
+}
+
+.not-yet {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #ffe600;
+}
+
+.branding {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.cards {
+    padding-right: 5%;
+    display: grid;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+}
+
+.consigne-text {
+
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.details {
+    white-space: nowrap;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.progress-bar {
+    margin-left: 130px;
+
+    width: 242px;
+    height: 51px;
+    display: flex;
+    background:
+        #44A651;
+    box-shadow: 0px 48px 19px rgba(173, 138, 255, 0.02), 0px 27px 16px rgba(173, 138, 255, 0.08), 0px 12px 12px rgba(173, 138, 255, 0.13), 0px 3px 7px rgba(173, 138, 255, 0.15), 0px 0px 0px rgba(173, 138, 255, 0.15);
+    backdrop-filter: blur(183px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 33px;
+    justify-content: center;
+
+    align-items: center;
+
+    border-style: ridge;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.bottom-left .details {
+    margin-top: -70px;
+}
+
+.deadline {
+    width: 196px;
+    height: 24px;
+    justify-content: center;
+    margin-left: 12%;
+    margin-top: -50%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.bottom-right .deadline {
+    margin-top: -120px;
+    margin-left: 130px;
+}
+
+
+.deadline {
+    width: 242px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(124, 37, 73, 0.87) 1.56%, rgba(99, 33, 63, 0.87) 54.04%, rgba(50, 21, 72, 0.87) 82.22%, rgba(55, 22, 65, 0.87) 100%);
+    box-shadow: 0px 113px 45px rgba(0, 0, 0, 0.02), 0px 63px 38px rgba(0, 0, 0, 0.08), 0px 28px 28px rgba(0, 0, 0, 0.13), 0px 7px 15px rgba(0, 0, 0, 0.15), 0px 0px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(91px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 33px;
+    height: 51px;
+    justify-content: center;
+    margin-left: 12%;
+    margin-top: -50%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.progress-bar {
+
+    margin-top: 50px;
+
+}
+
+.float-child.bottom-left {}
+
+.bottom-section {
+
+    margin-top: 7%;
+
+}
+
+.add {
+    cursor: pointer;
+}
+
+.contact {
+    margin-left: 5%;
+    padding-top: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.chat {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    width: 254px;
+    height: 64px;
+    background: rgba(102, 57, 147, 0.2);
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.03),
+        0px 105px 63px rgba(0, 0, 0, 0.1), 0px 47px 47px rgba(0, 0, 0, 0.17),
+        0px 12px 26px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(91px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 33px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.call {
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    background: rgba(102, 57, 147, 0.2);
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.03),
+        0px 105px 63px rgba(0, 0, 0, 0.1), 0px 47px 47px rgba(0, 0, 0, 0.17),
+        0px 12px 26px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(91px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    justify-content: center;
+    background: rgba(102, 57, 147, 0.2);
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.03), 0px 105px 63px rgba(0, 0, 0, 0.1), 0px 47px 47px rgba(0, 0, 0, 0.17), 0px 12px 26px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(91px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 33px;
+    width: 62px;
+    height: 64px;
+
+}
+
+
+
+
+
+
+
+@media (min-width: 1600px) {
+    .second-section {
+
+        display: grid;
+        grid-template-rows: 85% 25%;
+
+
+    }
+}
+
+@media (max-width: 1660px) {
+    .second-section {
+
+        display: grid;
+        grid-template-rows: 73% 25%;
+
+
+    }
+}
+
+
+.project-card.more-details {
+    width: 100px;
+
+}

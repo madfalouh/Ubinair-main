@@ -1,19 +1,12 @@
 import { useEffect } from "react"
-
 import navLogo from '../img/nav.png'
-
 import navLogo1 from '../img/nav1.png'
-
 import navLogo2 from '../img/nav2.png'
-
-
 import navLogo3 from '../img/nav3.png'
-
-
 import navLogo4 from '../img/nav4.png'
-
 import navLogo5 from '../img/nav5.png'
 
+import '../pages/Auth/styles/dashboardnav.css'
 export default function Sidebar({el , card ,cards , second}) {
 
 
