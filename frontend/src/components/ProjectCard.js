@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom"
 import cirle from '../img/circle.png'
 
 
-export default function ProjectCard({cards}) {
+export default function ProjectCard({cards,info}) {
 
  const [open , setOpen] = useState(false)
-
+ let deadline
 
 const hundledetails = () => {
 cards.current.classList.remove("isopen")
@@ -18,14 +18,17 @@ setOpen(true)
 }
 
 
+
+
+
 return (
 
 	<div className={ classNames("project-card" , {
                     "collapsed" :open
                 })} >
-	<p className="project-name" > Name of the Project  </p  >
+	<p className="project-name" >  {info.name} </p  >
     <div className="status-section">
-   <p  className="name" >Status : <span  className="not-yet"  >not yet</span>   </p>  
+   <p  className="name" >Status : <span  className="not-yet"  >{info.status}</span>   </p>  
     
 <p  className="name" >Service :<span  className="branding" >Branding</span>  </p> 
         </div>
@@ -44,9 +47,9 @@ return (
 <div className=" float-child bottom-right">
 
 <div  className="progress-bar"  >
-100%
+{info.progress }%
 </div>
-<p className="deadline" > Deadline in 9 days </p>
+<p className="deadline" > Deadline in {info.deadline} days </p>
 </div>
 
 

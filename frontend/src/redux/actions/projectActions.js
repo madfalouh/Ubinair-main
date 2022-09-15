@@ -90,12 +90,13 @@ export const listMyProjects =  (keyword = '') => async (dispatch, getState) => {
           console.log(tokenn);
         const config = {
             headers: {
-                Authorization: tokenn,
+                //Authorization: tokenn,
             },
         }
 
-        const { data } = await axios.get(`/projets/myprojects?keyword=${keyword}`, config)
-        //   console.log(data);
+        const { data } = await axios.get(`http://localhost:3000/projects/`, config)
+            console.log("hoiusdjoidfoi,df^joidf,klmfd,klpo,k");
+     
         dispatch({
             type: MY_PROJECTS_SUCCESS,
             payload: data,
