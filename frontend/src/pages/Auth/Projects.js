@@ -166,7 +166,7 @@ let temp = []
 
 
 
-temp.push( <object data={"data:application/pdf;base64,"+base64String}></object>)
+temp.push( <object data={"data:application/pdf;base64,"+base64String}  style={{width:1920+"px" , height:1080+"px"}} ></object>)
 
 setIframe(temp)
 
