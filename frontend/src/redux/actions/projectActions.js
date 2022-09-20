@@ -29,6 +29,13 @@ import {
     DELETE_BRIEF_FILE_SUCCESS,
     DELETE_BRIEF_FILE_FAIL,
     ADD_ABOUT_BRAND_REQUEST,
+    PROJET_CREATE_ONE ,
+    PROJET_CREATE_ONE_SUCCESS ,  
+    PROJET_CREATE_ONE_FAIL ,
+    PROJET_ADD,
+    PROJET_ADD_SUCCESS ,
+    PROJET_ADD_FAIL 
+
 } from './constants/projetconstants'
 import { toast } from 'react-toastify'
 
@@ -112,6 +119,77 @@ export const listMyProjects =  (keyword = '') => async (dispatch, getState) => {
         })
     }
 }
+
+
+export const addAproject =  (data) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: PROJET_ADD,
+        })
+        //     console.log("before token");
+
+        const { token } = getState()
+        //     console.log("after token");
+         const tokenn=localStorage.getItem("token")
+          console.log(tokenn);
+        const config = {
+            headers: {
+                //Authorization: tokenn,
+            },
+
+        }
+
+       await axios({
+            method:"post" ,
+            url : "http://localhost:3000/projects"  ,
+            headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+         // 'Authorization': 'Bearer ' + localStorage.getItem('userInfo')
+        },
+            data :data 
+            })
+            
+     
+        dispatch({
+            type: PROJET_ADD_SUCCESS,
+            payload: true,
+        })
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: PROJET_ADD_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}
+
+export const changeOne =  (boolean) => async (dispatch, getState) => {
+ 
+    try {
+     
+        dispatch({
+            type: PROJET_CREATE_ONE,
+        })
+        dispatch({
+            type: PROJET_CREATE_ONE_SUCCESS,
+            payload: boolean,
+        })
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: PROJET_CREATE_ONE_FAIL,
+            payload:error
+        })
+    }
+}
+
+
+
+
 export const Getprojectdetails = (id) => async (dispatch, getState) => {
     console.log("kllkflgd");
     try {

@@ -10,10 +10,13 @@ price : {
 type:Number, 
 required:true, 
 },
-files : {
+files :
+[
+{
+name : String ,
 data : Buffer , 
 contentType : String, 
-} , 
+} ], 
 progress : {
 type:Number, 
 required:true , 

@@ -37,16 +37,30 @@ console.log(err);
 }
 
 async function addproject (req , res){
-//let {data , mimetype} = null
+
+const today = new Date()
+const yyyy = today.getFullYear();
+let mm = today.getMonth() + 1;
+let dd = today.getDate();
+
+
+var sample = new Array()
+console.log(req.files); 
+req.files.file.map((file)=> {
+
+ var obj = {name: file.name , data : file.data , mimetype : file.mimetype };
+
+sample.push(obj)
+})
+
+
 const project = new Project({
 name:req.body.name , 
 price: req.body.price,
 progress:req.body.progress , 
 deadline:req.body.deadline , 
-files :  {
-  data: null,
-  contentType: null,
-}
+startDate :  mm+"/"+dd+"/"+yyyy,
+files : sample, 
 })
 try{
 
