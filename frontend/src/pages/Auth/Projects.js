@@ -24,6 +24,7 @@ const Project = () => {
     const [base64, setBase64] = useState("")
     const [files, setFiles] = useState([])
     const [iframe , setIframe] = useState([])
+    const popupOpen = useRef()
     const getProjects = useSelector((state) => state.ListMyProjectsReducer)
 
     const {projects} = getProjects
@@ -57,8 +58,11 @@ const Project = () => {
             period :  period , 
             status : project.status ,
             one : one , 
+            files : project.files ,
+            iframe : setIframe , 
+            popupOpen : popupOpen
             }
-        temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
+        temp.push(<ProjectCard cards={cardRef} info={info}  setIframe={setIframe} ></ProjectCard>)
             
             }  )
             console.log(temp);
@@ -105,6 +109,7 @@ console.log(e.target.value);
             status : project.status ,
             period : period , 
             one : one , 
+            files : project.files
             }
         temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
             }  )           
@@ -166,28 +171,37 @@ let temp = []
 
 
 
-temp.push( <object data={"data:application/pdf;base64,"+base64String}  style={{width:1920+"px" , height:1080+"px"}} ></object>)
+temp.push( <object data={"data:application/pdf;base64,"+base64String}  style={{width:100+"%" , height:1000+"px"}} ></object>)
 
 setIframe(temp)
 
+const popupOpen = document.querySelector(".pop-up");
+popupOpen.classList.add("open");
+
     }
 
-
-function arrayBufferToBase64( buffer ) {
-	var binary = '';
-	var bytes = new Uint8Array( buffer );
-	var len = bytes.byteLength;
-	for (var i = 0; i < len; i++) {
-		binary += String.fromCharCode( bytes[ i ] );
-        console.log(binary);
-	}
-	return window.btoa( binary );
+const  hundleclose =()=>{
+const popupOpen = document.querySelector(".pop-up");
+popupOpen.classList.remove("open");
 }
+
+
 
     return (
 
         <div className='project-containar'   >
+                 
+             <div class="pop-up" ref={popupOpen} >
+      <div class="content-text">
+        <div class="pop-up-container">
+          <i class="fa fa-window-close fa-2x close"  onClick={hundleclose}>X</i>
+          <div class="text-box">
+            {iframe}
+          </div>
 
+        </div>
+      </div>
+    </div>
             <Sidebar el={dashRef} card={cardRef} cards={cardsRef} second={secondRef} ></Sidebar>
 
 
@@ -222,7 +236,6 @@ function arrayBufferToBase64( buffer ) {
                     <div className='second-section' ref={secondRef} >
 
                         <div className='todo-list' >
-<button onClick={hundleClick1} > fhfffg </button> 
                             <p style={{ paddingTop: 20 + 'px' }} >My to do list</p>
                             <p style={{ paddingTop: 20 + 'px' }} onClick={ ()=>  hundleFilter("not")} >Estimation</p>
                             <p style={{ paddingTop: 20 + 'px' }}  onClick={ ()=> hundleFilter("on")} >Progress</p>
@@ -237,7 +250,7 @@ function arrayBufferToBase64( buffer ) {
 
 
 
-          {iframe}
+        
 
                 </div>
 
@@ -247,10 +260,7 @@ function arrayBufferToBase64( buffer ) {
 
             </div>
 
-       <input type="file" name='files' multiple="" ref={fileRef}   onChange={(e)=>{  const temp = files
-                                                                                     temp.push(e.target.files[0])
-                                                                                    setFiles(temp)
-                                                                                            }} />
+
    
            
         </div>
