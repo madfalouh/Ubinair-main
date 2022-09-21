@@ -101,7 +101,7 @@ cards.current.classList.add("isopen")
 cards.current.classList.remove("isone")
 console.log(cards.current.classList);
 setOpen(false)
-
+//1 2 
 console.log(cards.current.childNodes);
 let p = 0
 for (var i = 0; i < cards.current.childNodes.length; i++) {
