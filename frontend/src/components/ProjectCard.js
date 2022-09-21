@@ -102,6 +102,23 @@ cards.current.classList.remove("isone")
 console.log(cards.current.classList);
 setOpen(false)
 
+console.log(cards.current.childNodes);
+let p = 0
+for (var i = 0; i < cards.current.childNodes.length; i++) {
+        console.log(cards.current.childNodes[i].className);
+    if (cards.current.childNodes[i].className.includes("collapsed") ) {
+        console.log(i);
+      p++
+      
+    }        
+}
+
+
+console.log(p);
+
+
+
+
 } 
 
 return (
