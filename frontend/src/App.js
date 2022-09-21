@@ -30,6 +30,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import EditUser from './pages/EditUser/EditUser'
 import Project from './pages/Auth/Projects'
+import ChatPage from './pages/chat/ChatPage'
 
 function App() {
     AOS.init()
@@ -50,12 +51,15 @@ function App() {
         }, 3000)
     }, [])
 
- 
-  useEffect(() => {
-        const isRefresh =sessionStorage.getItem("is_reloaded") ;
-        const token=localStorage.getItem("token")
-     if ( isRefresh!=null && isRefresh.toString()==="true" && token!==null ) {
-    dispatch(dispatchGetUser(token))
+    useEffect(() => {
+        const isRefresh = sessionStorage.getItem('is_reloaded')
+        const token = localStorage.getItem('token')
+        if (
+            isRefresh != null &&
+            isRefresh.toString() === 'true' &&
+            token !== null
+        ) {
+            dispatch(dispatchGetUser(token))
         }
     }, [])
 
@@ -63,10 +67,13 @@ function App() {
         const isLogin = localStorage.getItem('isLogin')
 
         const firstLogin = localStorage.getItem('firstLogin')
-        const isRefresh =sessionStorage.getItem("is_reloaded") ;
-        console.log(isRefresh);
-        if (firstLogin && isRefresh==null || isLogin!=null &&  isLogin.toString()==="true") {
-           console.log("hththr"+isLogin);
+        const isRefresh = sessionStorage.getItem('is_reloaded')
+        console.log(isRefresh)
+        if (
+            (firstLogin && isRefresh == null) ||
+            (isLogin != null && isLogin.toString() === 'true')
+        ) {
+            console.log('hththr' + isLogin)
             dispatch(dispatchToken())
         }
     }, [auth.isLogged, dispatch])
@@ -74,10 +81,12 @@ function App() {
     // when refresh the token exsit but the logged change to false so we logged out so that's we do that
 
     useEffect(() => {
-    const isLogin=  localStorage.getItem("isLogin") 
-     const isRefresh =sessionStorage.getItem("is_reloaded") ;
-        if (token && isRefresh==null || isLogin!=null && isLogin.toString()==="true") {
-            
+        const isLogin = localStorage.getItem('isLogin')
+        const isRefresh = sessionStorage.getItem('is_reloaded')
+        if (
+            (token && isRefresh == null) ||
+            (isLogin != null && isLogin.toString() === 'true')
+        ) {
             //    dispatch(dispatchLogin()); //WE GOT  logged change to false so we transfer it to true
             //Get user information cuz after get token useeffecr re compile and get error mn dispatchLogin
             sessionStorage.setItem('is_reloaded', true)
@@ -91,11 +100,13 @@ function App() {
     return (
         <div>
             <ToastContainer />
-         
+
             <>
                 <Routes>
                     <Route path="/*" element={<Home />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/chat" element={<ChatPage />} />
+
                     <Route path="/projects" element={<Project />} />
                     <Route
                         path="/register"
