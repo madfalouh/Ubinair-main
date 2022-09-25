@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
-import ProjectCard  from '../../components/ProjectCard'
+import ProjectCard from '../../components/ProjectCard'
 import Sidebar from '../../components/sidebar'
 import AddCard from '../../components/AddCard'
 import '../Auth/styles/project.css'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAproject, changeOne, listMyProjects } from '../../redux/actions/projectActions'
-
-
-
+import call from '../../img/call.png'
+import addText from '../../img/addText.png'
+import listimage from '../../img/listimage.png'
+import searchIcon from '../../img/search-icon.png'
+import filter from '../../img/filter.png'
 const Project = () => {
     const cardRef = useRef()
     const cardsRef = useRef()
@@ -23,52 +25,52 @@ const Project = () => {
     const [one, setOne] = useState(false)
     const [base64, setBase64] = useState("")
     const [files, setFiles] = useState([])
-    const [iframe , setIframe] = useState([])
+    const [iframe, setIframe] = useState([])
     const popupOpen = useRef()
     const getProjects = useSelector((state) => state.ListMyProjectsReducer)
 
-    const {projects} = getProjects
-    const [searchTerm , setSearchTerm] = useState('')
+    const { projects } = getProjects
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
-      
+
         dispatch(listMyProjects())
-  
+
 
     }, [])
 
 
     useEffect(() => {
 
-    if(projects!=undefined){
-        const temp = []
-        projects.map((project) =>{
-        var date1 = new Date(project.deadline);
-        var date2 = new Date(project.startDate);        
-        var deadline= Math.floor( (date1.getTime() -Date.now())/ (1000 * 3600 * 24) )  ;
-        var period= Math.floor( ( date1.getTime()- date2.getTime())/ (1000*3600*24) )  ;  
-        console.log(period);
-        //console.log(Date.now()/date1.getTime());
-        console.log(one);
-        const info = {
-            name : project.name,
-            price : project.price ,
-            progress : project.progress , 
-            deadline : deadline ,
-            period :  period , 
-            status : project.status ,
-            one : one , 
-            files : project.files ,
-            iframe : setIframe , 
-            popupOpen : popupOpen
-            }
-        temp.push(<ProjectCard cards={cardRef} info={info}  setIframe={setIframe} ></ProjectCard>)
-            
-            }  )
+        if (projects != undefined) {
+            const temp = []
+            projects.map((project) => {
+                var date1 = new Date(project.deadline);
+                var date2 = new Date(project.startDate);
+                var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
+                var period = Math.floor((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
+                console.log(period);
+                //console.log(Date.now()/date1.getTime());
+                console.log(one);
+                const info = {
+                    name: project.name,
+                    price: project.price,
+                    progress: project.progress,
+                    deadline: deadline,
+                    period: period,
+                    status: project.status,
+                    one: one,
+                    files: project.files,
+                    iframe: setIframe,
+                    popupOpen: popupOpen
+                }
+                temp.push(<ProjectCard cards={cardRef} info={info} setIframe={setIframe} ></ProjectCard>)
+
+            })
             console.log(temp);
-        setCards(temp)
-        
-    }
+            setCards(temp)
+
+        }
     }, [getProjects])
 
 
@@ -76,132 +78,132 @@ const Project = () => {
     useEffect(() => {
         if (cardRef.current.childNodes[0] != undefined) {
             if (projectCards.length <= 1) {
-            dispatch( changeOne(true) )
-            setOpen(false)
-            setOne(true)
-            }else{
-        const nodes = cardRef.current.childNodes[0]
-        const bottomSection = nodes.childNodes[2]
-        if (bottomSection != undefined) {
-            dispatch( changeOne(false) )
-            setOpen(true)
-            setOne(false)
-        }
+                dispatch(changeOne(true))
+                setOpen(false)
+                setOne(true)
+            } else {
+                const nodes = cardRef.current.childNodes[0]
+                const bottomSection = nodes.childNodes[2]
+                if (bottomSection != undefined) {
+                    dispatch(changeOne(false))
+                    setOpen(true)
+                    setOne(false)
+                }
             }
         }
     }, [projectCards])
 
-  const hundleType = (e) =>{
-console.log(e.target.value);
-    setSearchTerm(e.target.value)
-    const temp = []
+    const hundleType = (e) => {
+        console.log(e.target.value);
+        setSearchTerm(e.target.value)
+        const temp = []
         const resultsArray = projects.filter(project => project.name.toLocaleLowerCase().includes(e.target.value))
-        resultsArray.map((project) =>{
-             var date1 = new Date(project.deadline);
-        var date2 = new Date(project.startDate);        
-        var deadline= Math.floor( (date1.getTime() -Date.now())/ (1000 * 3600 * 24) )  ;
-        var period= Math.floor( ( date1.getTime()- date2.getTime())/ (1000*3600*24) )  ;  
-        const info = {
-            name : project.name,
-            price : project.price ,
-            progress : project.progress , 
-            deadline : deadline,
-            status : project.status ,
-            period : period , 
-            one : one , 
-            files : project.files
+        resultsArray.map((project) => {
+            var date1 = new Date(project.deadline);
+            var date2 = new Date(project.startDate);
+            var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
+            var period = Math.floor((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
+            const info = {
+                name: project.name,
+                price: project.price,
+                progress: project.progress,
+                deadline: deadline,
+                status: project.status,
+                period: period,
+                one: one,
+                files: project.files
             }
-        temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
-            }  )           
+            temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
+        })
         setCards(temp)
-}
+    }
 
-  const hundleFilter = (e) =>{
-console.log(e);
-    const temp = []
+    const hundleFilter = (e) => {
+        console.log(e);
+        const temp = []
         const resultsArray = projects.filter(project => project.status.toLocaleLowerCase().includes(e))
-        resultsArray.map((project) =>{
-        var date1 = new Date(project.deadline);
-        var deadline= Math.floor( (date1.getTime() -Date.now())/ (1000 * 3600 * 24) )  ;
-        const info = {
-            name : project.name,
-            price : project.price ,
-            progress : project.progress , 
-            deadline : deadline,
-            status : project.status
+        resultsArray.map((project) => {
+            var date1 = new Date(project.deadline);
+            var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
+            const info = {
+                name: project.name,
+                price: project.price,
+                progress: project.progress,
+                deadline: deadline,
+                status: project.status
             }
-        temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
-            }  )           
+            temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
+        })
         setCards(temp)
-}
+    }
 
 
     const hundleClick = () => {
         console.log(files);
 
 
-let data = new FormData() 
+        let data = new FormData()
 
 
-data.append("name" , "TestProject123252") ; 
-data.append("price" ,12 ) ; 
-files.map((file) =>{data.append("file",file)})
-data.append("progress",41) ; 
-data.append("deadline","10/21/2022") ; 
-data.append("status","not yet") ; 
+        data.append("name", "TestProject123252");
+        data.append("price", 12);
+        files.map((file) => { data.append("file", file) })
+        data.append("progress", 41);
+        data.append("deadline", "10/21/2022");
+        data.append("status", "not yet");
 
 
-    dispatch(addAproject(data))
+        dispatch(addAproject(data))
     }
 
 
-   const hundleClick1 = () => {
+    const hundleClick1 = () => {
 
- const data = getProjects.projects[3].files[0].data.data
+        const data = getProjects.projects[3].files[0].data.data
 
-console.log(data);
-const base64String =btoa(new Uint8Array(data).reduce(function (data, byte) {
+        console.log(data);
+        const base64String = btoa(new Uint8Array(data).reduce(function (data, byte) {
 
-return data + String.fromCharCode(byte);
-}, ''));
+            return data + String.fromCharCode(byte);
+        }, ''));
 
-setBase64(base64String)
+        setBase64(base64String)
 
-let temp = []
+        let temp = []
 
 
 
-temp.push( <object data={"data:application/pdf;base64,"+base64String}  style={{width:100+"%" , height:1000+"px"}} ></object>)
+        temp.push(<object data={"data:application/pdf;base64," + base64String} style={{ width: 100 + "%", height: 1000 + "px" }} ></object>)
 
-setIframe(temp)
+        setIframe(temp)
 
-const popupOpen = document.querySelector(".pop-up");
-popupOpen.classList.add("open");
+        const popupOpen = document.querySelector(".pop-up");
+        popupOpen.classList.add("open");
 
     }
 
-const  hundleclose =()=>{
-const popupOpen = document.querySelector(".pop-up");
-popupOpen.classList.remove("open");
-}
+    const hundleclose = () => {
+        const popupOpen = document.querySelector(".pop-up");
+        popupOpen.classList.remove("open");
+    }
 
 
 
     return (
 
         <div className='project-containar'   >
-                 
-             <div class="pop-up" ref={popupOpen} >
-      <div class="content-text">
-        <div class="pop-up-container">
-          <i class="fa fa-window-close fa-2x close"  onClick={hundleclose}>X</i>
-          <div class="text-box">
-            {iframe}
-          </div>
 
-        </div>
-      </div>
-    </div>
+            <div class="pop-up" ref={popupOpen} >
+                <div class="content-text">
+                    <div class="pop-up-container">
+                        <i class="fa fa-window-close fa-2x close" onClick={hundleclose}>X</i>
+                        <div class="text-box">
+                            {iframe}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <Sidebar el={dashRef} card={cardRef} cards={cardsRef} second={secondRef} ></Sidebar>
 
 
@@ -210,10 +212,14 @@ popupOpen.classList.remove("open");
 
                 <div className='header-element' >
                     <div className='projects'>
-                        Projects
+                           <select name="format" id="format">
+                            <option value="pdf">Project</option>
+                            <option value="txt">Estimation</option>
+                            </select>
                     </div>
                     <div className='search'>
-                        <input className='search-box' placeholder='Search'  onChange={event=> {hundleType(event)} } />
+                        <img src={searchIcon} className="searchIcon" ></img>
+                        <input className='search-box' placeholder='Search' onChange={event => { hundleType(event) }} />
                     </div>
                 </div>
 
@@ -221,10 +227,10 @@ popupOpen.classList.remove("open");
 
 
                     <div className='first-section' ref={cardsRef}  >
-                        <div className= {classNames('cards' , {
-                                "isopen" : open,
-                                 "isone" : one
-                                }) } ref={cardRef}  >
+                        <div className={classNames('cards', {
+                            "isopen": open,
+                            "isone": one
+                        })} ref={cardRef}  >
                             {projectCards}
                             <div ref={addRef} onClick={hundleClick} >
                                 <AddCard ></AddCard>
@@ -236,13 +242,19 @@ popupOpen.classList.remove("open");
                     <div className='second-section' ref={secondRef} >
 
                         <div className='todo-list' >
-                            <p style={{ paddingTop: 20 + 'px' }} >My to do list</p>
-                            <p style={{ paddingTop: 20 + 'px' }} onClick={ ()=>  hundleFilter("not")} >Estimation</p>
-                            <p style={{ paddingTop: 20 + 'px' }}  onClick={ ()=> hundleFilter("on")} >Progress</p>
+                            <p className='todo-title' style={{ paddingTop: 20 + 'px' }} >My to do list</p>
+                            <ul className='todo-text' >
+                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload the images</p></div></li>
+                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload the names</p></div></li>
+                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload the pdf</p></div></li>
+                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload the bill</p></div></li>
+
+                            </ul>
+                            <img src={addText} className="add-text" ></img>
                         </div>
                         <div className='contact' >
                             <div className='chat' >chat w/ PM</div>
-                            <div className='call' >📞</div>
+                            <div className='call' ><img src={call}></img> </div>
                         </div>
                     </div>
 
@@ -250,7 +262,7 @@ popupOpen.classList.remove("open");
 
 
 
-        
+
 
                 </div>
 
@@ -261,8 +273,8 @@ popupOpen.classList.remove("open");
             </div>
 
 
-   
-           
+
+
         </div>
     )
 }

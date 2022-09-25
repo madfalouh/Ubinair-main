@@ -128,9 +128,9 @@ return (
                 })} >
 
     
-<p  className="name close-name" onClick={hundleclose} > Close <span  className="branding" ></span>  </p> 
-
-	<p className="project-name" >  {info.name} </p  >
+<p  className="name close-name" onClick={hundleclose} > <a  class="close"/>  </p> 
+<div className="project-name" >  <p>  {info.name} </p> </div>
+	
     <div className="status-section">
    <p  className="name" >Status : <span  className="not-yet"  >{info.status}</span>   </p>  
     
@@ -148,14 +148,11 @@ return (
 
 
 <div className=" float-child bottom-right">
-
 <div  className="progress-bar-container" ref={progressCRef}  >
-    
-<div  className="progress-bar" ref={progressRef}  >
-{info.progress }%
+ <span data-value="60" style={{width: 60+"%"}}>{info.progress}%</span>
+<div  className="progress-bar" ref={progressRef}></div>  
 </div>
-</div>
-<p className="deadline"  ref={deadLineRef} > Deadline in {info.deadline} days </p>
+<div className="deadline"  ref={deadLineRef} > Deadline in {info.deadline} days </div>
 </div>
 
 
