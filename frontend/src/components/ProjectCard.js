@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 import cirle from '../img/circle.png'
-
+import listimage from '../img/listimage.png'
 
 export default function ProjectCard({cards,info , setIframe }) {
 
@@ -162,21 +162,29 @@ return (
 
 <div  className="consigne"    >
  <p className="consigne-text" > Consigne</p> 
+  
+<div  className="first-consigne"    >
 
-<div  className="first-consigne"    ></div>
+ 
+
+
+</div>
 <div  className="second-consigne"    >  
 
 <div  className="red-line"    ></div>  
 
+
 </div>
+
+<div className='file-liste-consigne' >
 <ul  className='file-liste' >
-<li onClick={ e => {hundleClick1(e)}   } id="0" >Charte graphic</li>
-<li  onClick={ e => {hundleClick1(e)}  }  id="1">Cahier de charge </li>
-<li id="2">Contenu du site</li>
-<li id="3">Images</li>
+<li onClick={ e => {hundleClick1(e)}   } id="0" > <div className='listimge' ><img src={listimage}   ></img><p>Charte graphic</p>  <button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
+<li  onClick={ e => {hundleClick1(e)}  }  id="1"><div className='listimge'  ><img src={listimage}   ></img><p>Cahier de charge</p><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
+<li onClick={ e => {hundleClick1(e)}   } id="2"><div className='listimge'  ><img src={listimage}   ></img><p>Contenu du site</p><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
+<li onClick={ e => {hundleClick1(e)}   } id="3"><div className='listimge' ><img src={listimage}   ></img><p>Images</p><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
 </ul>
 
-
+</div>
 </div>
 
 

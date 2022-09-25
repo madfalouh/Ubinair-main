@@ -17,34 +17,20 @@
     color: #ffffff;
 }
 
-.projects {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 165px;
-    height: 62px;
-    background: rgba(139, 102, 181, 0.113);
-    backdrop-filter: blur(114.1px);
-    /* Note: backdrop-filter has minimal browser support */
-    border-radius: 33px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    color: #ffffff;
+option:focus{
+    background-color:#FFF;
+    outline:none;
+    border:none;
+    box-shadow:none;
 }
-
-
-select {
+.projects select {
   display: flex;
     align-items: center;
     justify-content: center;
     width: 165px;
     height: 62px;
-    background-color:rgba(139, 102, 181, 0.113);
-    background: rgba(139, 102, 181, 0.113);
+    background-color:#381c54;
+
     backdrop-filter: blur(114.1px);
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 33px;
@@ -324,6 +310,14 @@ display: none;
 
 }
 
+.text-submit {
+width: 0px;
+margin-left: -1550%;
+margin-top: 150%;
+color: #eeeafa;
+background-color: rgba(75, 45, 114, 0.42);
+}
+
 .consigne {
     background: rgba(75, 45, 114, 0.42);
     box-shadow: 0px 528px 211px rgba(49, 33, 69, 0.01), 0px 297px 178px rgba(49, 33, 69, 0.03), 0px 132px 132px rgba(49, 33, 69, 0.04), 0px 33px 73px rgba(49, 33, 69, 0.05), 0px 0px 0px rgba(49, 33, 69, 0.05);
@@ -422,10 +416,9 @@ display: none;
 }
 
 .consigne {
-
 display: grid;
 grid-template-columns:  75% 25% ;
-column-gap: 300px;
+column-gap: 250px;
 }
 
 .red-line{
@@ -615,10 +608,21 @@ background-color: red;
 }
 
 .file-liste{
-margin-top: 30px;
+list-style-type: none;
+
+margin-top: 12px;
 margin-left: -20%;
 
 }
+
+.file-liste-consigne{
+display: grid;
+grid-template-columns: 1fr 1fr ;
+margin-left: -15%;
+}
+
+
+
 
 li {
 cursor: pointer;
@@ -731,6 +735,62 @@ display: grid;
 
 grid-template-columns: 1fr 1fr;
 
+
+}
+
+.listimge {
+display: grid;
+
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+
+
+}
+
+.btn {
+  margin-left: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.cancel {
+  
+  background-color: rgb(220, 20, 60, 0.7);
+}
+.cancel:hover, .cancel:focus {
+  background-color: rgb(220, 20, 60, 1);
+}
+
+.accept {
+  background-color: rgb(50,205,50, 0.7);
+}
+.accept:hover, .accept:focus {
+  background-color: rgb(50,205,50, 1);
+}
+
+
+.update {
+  background-color: rgb(248, 92, 1,0.7);
+}
+.update:hover, .update:focus {
+  background-color: rgba(248, 92, 1, 1);
+}
+
+
+
+.listimge p{
+margin-top: 5px;
+
+ width: 200px;   
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 23px;
+    line-height: 29px;
+    text-align: left;
+    color: #ffffff;
 
 }
 
