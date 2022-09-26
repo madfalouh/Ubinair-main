@@ -25,16 +25,20 @@ function ChatPage() {
                         src={require('./chatAssets/paperclip.svg').default}
                         alt="paperclip"
                     />
+                    <form id="message-container">
                     <input
                         type="text"
                         name="message"
                         className="message"
                         placeholder="Taper un message ..."
                     />
+                    <button>
                     <img
                         src={require('./chatAssets/sendMsg.svg').default}
                         alt="send"
                     />
+                    </button>
+                    </form>
                 </div>
             </div>
         </div>

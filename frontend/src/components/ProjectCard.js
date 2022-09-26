@@ -142,7 +142,7 @@ return (
 <div className=" float-child bottom-left">
 <img  src={cirle}  className="circles" />
 
-<p className="details"    onClick={hundledetails} > More details </p>
+<p className="details"    onClick={hundledetails} > Plus de détails </p>
 </div>
 
 
@@ -152,7 +152,7 @@ return (
  <span data-value="60" style={{width: 60+"%"}}>{info.progress}%</span>
 <div  className="progress-bar" ref={progressRef}></div>  
 </div>
-<div className="deadline"  ref={deadLineRef} > Deadline in {info.deadline} days </div>
+<div className="deadline"  ref={deadLineRef} > Date limite en {info.deadline} jours </div>
 </div>
 
 

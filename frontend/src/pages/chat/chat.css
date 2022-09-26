@@ -60,9 +60,9 @@
     background: white;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 15px 40px;
-    height: 80px;
+    justify-content: flex-start;
+    padding: 8px 40px;
+    height: 60px;
 
     gap: 40px;
 }
@@ -78,4 +78,23 @@
 
 .message::placeholder {
     color: #383838;
+}
+
+#message-container button {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    margin-left: 40px;
+}
+
+#message-container button:hover {
+    cursor: pointer;
+}
+
+#message-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

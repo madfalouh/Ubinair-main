@@ -31,6 +31,8 @@ const Project = () => {
 
     const { projects } = getProjects
     const [searchTerm, setSearchTerm] = useState('')
+    const [optionPrj, setOptionPrj] = useState(true)
+
 
     useEffect(() => {
 
@@ -187,6 +189,7 @@ const Project = () => {
         popupOpen.classList.remove("open");
     }
 
+    
 
 
     return (
@@ -211,15 +214,25 @@ const Project = () => {
                 <p className='dashboard-text' > Dashboard </p>
 
                 <div className='header-element' >
-                    <div className='projects'>
+                    {/* <div className='projects'>
                            <select name="format" id="format">
                             <option value="pdf">Project</option>
                             <option value="txt">Estimation</option>
                             </select>
+                    </div> */}
+                    <div className='dashboard-select-button'>
+                        <button className={classNames('ds-button-option', {
+                            "selected-option" : optionPrj
+                        })} value='pdf' onClick={() => setOptionPrj(true)}>Projets</button>
+                        <button className={classNames('ds-button-option', {
+                            "selected-option" : !optionPrj
+                        })} value='txt' onClick={() => setOptionPrj(false)}>Estimations</button>
+
                     </div>
+
                     <div className='search'>
                         <img src={searchIcon} className="searchIcon" ></img>
-                        <input className='search-box' placeholder='Search' onChange={event => { hundleType(event) }} />
+                        <input className='search-box' placeholder='Recherche' onChange={event => { hundleType(event) }} />
                     </div>
                 </div>
 
@@ -242,12 +255,12 @@ const Project = () => {
                     <div className='second-section' ref={secondRef} >
 
                         <div className='todo-list' >
-                            <p className='todo-title' style={{ paddingTop: 20 + 'px' }} >My to do list</p>
+                            <p className='todo-title' style={{ paddingTop: 20 + 'px' }} >Liste à faire</p>
                             <ul className='todo-text' >
-                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload the images</p></div></li>
-                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload the names</p></div></li>
-                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload the pdf</p></div></li>
-                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload the bill</p></div></li>
+                                <li><div className='listimg' ><img src={listimage}   ></img><p  >télécharger les images</p></div></li>
+                                <li><div className='listimg' ><img src={listimage}   ></img><p  >télécharger les noms</p></div></li>
+                                <li><div className='listimg'><img src={listimage}   ></img><p  >télécharger les pdf</p></div></li>
+                                <li><div className='listimg'><img src={listimage}   ></img><p  >télécharger la facture</p></div></li>
 
                             </ul>
                             <img src={addText} className="add-text" ></img>

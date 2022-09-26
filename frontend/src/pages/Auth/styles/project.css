@@ -71,14 +71,13 @@ option:focus{
     margin-bottom: -12%;
     margin-left: 15%;
     gap: 5%;
-    display: grid;
-    grid-template-columns: 165px auto;
+    display: flex;
+    align-items: center;
 }
 
 
-
 .todo-list {
-    width: 357px;
+    width: 375px;
 
     background: rgba(139, 102, 181, 0.113);
     backdrop-filter: blur(114.1px);
@@ -823,4 +822,38 @@ margin-left: 1%;
 
 }
 
+.dashboard-select-button button {
+    border: none;
+    background : none;
+    color: white;
+    background-color:#381c54;
+    font-weight: 600;
+    font-size: 24px;
+    padding: 10px 20px;
+    height: 62px;
 
+}
+.dashboard-select-button button:hover {
+    cursor: pointer;
+}
+.dashboard-select-button button:nth-child(1) {
+    border-radius: 50px 0 0 50px;
+}
+.dashboard-select-button button:nth-child(2) {
+    border-radius: 0px 50px 50px 0px;
+}
+.dashboard-select-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 1px;
+    background-color: white;
+    height: fit-content;
+    border-radius: 50px;
+    border: 1px solid white;
+}
+
+.selected-option {
+    background-color: #27133a !important;
+    /* color: rgb(100%, 100%, 100%, 0.6) !important; */
+}
