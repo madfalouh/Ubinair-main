@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 import cirle from '../img/circle.png'
 import listimage from '../img/listimage.png'
-
-export default function ProjectCard({ cards, info, setIframe }) {
+import file from '../img/file.png'
+import pdf from '../img/pdf.png'
+export default function ProjectCard({ cards, info, setIframe,setType , type  }) {
 
     const [open, setOpen] = useState(false)
     const progressbar = info.progress / 100
@@ -72,15 +73,12 @@ export default function ProjectCard({ cards, info, setIframe }) {
 
 
 
+    useEffect(() => {
 
-
-
-
-
-
-
-
-
+        console.log("eminem");
+        hundleclose()
+        
+    }, [type])
 
 
     useEffect(() => {
@@ -92,13 +90,14 @@ export default function ProjectCard({ cards, info, setIframe }) {
 
 
     const hundledetails = () => {
+        setType("fd")
         cards.current.classList.remove("isopen")
         //cards.current.classList.add("collapsed")
         cards.current.classList.add("isone")
         console.log(cards.current.classList);
         setOpen(true)
         var btn1 = document.querySelector(".accept")
-        btn1.style.display="block"
+        btn1.style.display = "block"
     }
 
     const hundleClick1 = (e) => {
@@ -137,11 +136,11 @@ export default function ProjectCard({ cards, info, setIframe }) {
         var btn1 = document.querySelector(".accept")
         var btn2 = document.querySelector(".cancel")
         var btn3 = document.getElementById("save")
-        name.style.display="block"
-        btn1.style.display="none"
-        btn2.style.display="none"
-        btn3.style.display="none"
-        footContent.style.display="none"
+        name.style.display = "block"
+        btn1.style.display = "none"
+        btn2.style.display = "none"
+        btn3.style.display = "none"
+        footContent.style.display = "none"
         console.log(cards.current.classList);
         setOpen(false)
 
@@ -173,54 +172,54 @@ export default function ProjectCard({ cards, info, setIframe }) {
 
 
 
-const hundleupdate = ()=> {
-var footContent = document.getElementById("footContent_updateText");
-var name = document.getElementById("name");
-footContent.style.display = "inline-block";
-footContent.value=name.innerText
-name.style.display = "none";
-var btn1 = document.querySelector(".accept")
-var btn2 = document.querySelector(".cancel")
-var btn3 = document.getElementById("save")
-btn1.style.display="none"
-btn2.style.display="block"
-btn3.style.display="block"
-        }
+    const hundleupdate = () => {
+        var footContent = document.getElementById("footContent_updateText");
+        var name = document.getElementById("name");
+        footContent.style.display = "inline-block";
+        footContent.value = name.innerText
+        name.style.display = "none";
+        var btn1 = document.querySelector(".accept")
+        var btn2 = document.querySelector(".cancel")
+        var btn3 = document.getElementById("save")
+        btn1.style.display = "none"
+        btn2.style.display = "block"
+        btn3.style.display = "block"
+    }
 
-const hundlesave = ()=> {
-var footContent = document.getElementById("footContent_updateText");
-var name = document.getElementById("name");
+    const hundlesave = () => {
+        var footContent = document.getElementById("footContent_updateText");
+        var name = document.getElementById("name");
 
-if(footContent.value==="") {
-}else {
-footContent.style.display = "none";
-name.style.display = "inline-block";
-name.innerText=footContent.value
-var btn1 = document.querySelector(".accept")
-var btn2 = document.querySelector(".cancel")
-var btn3 = document.getElementById("save")
-btn1.style.display="block"
-btn2.style.display="none"
-btn3.style.display="none"
-}
-
-
+        if (footContent.value === "") {
+        } else {
+            footContent.style.display = "none";
+            name.style.display = "inline-block";
+            name.innerText = footContent.value
+            var btn1 = document.querySelector(".accept")
+            var btn2 = document.querySelector(".cancel")
+            var btn3 = document.getElementById("save")
+            btn1.style.display = "block"
+            btn2.style.display = "none"
+            btn3.style.display = "none"
         }
 
 
-const hundlecancel = ()=> {
-var footContent = document.getElementById("footContent_updateText");
-var name = document.getElementById("name");
-footContent.style.display = "none";
-footContent.value=name.innerText
-name.style.display = "inline-block";
-var btn1 = document.querySelector(".accept")
-var btn2 = document.querySelector(".cancel")
-var btn3 = document.getElementById("save")
-btn1.style.display="block"
-btn2.style.display="none"
-btn3.style.display="none"
-        }
+    }
+
+
+    const hundlecancel = () => {
+        var footContent = document.getElementById("footContent_updateText");
+        var name = document.getElementById("name");
+        footContent.style.display = "none";
+        footContent.value = name.innerText
+        name.style.display = "inline-block";
+        var btn1 = document.querySelector(".accept")
+        var btn2 = document.querySelector(".cancel")
+        var btn3 = document.getElementById("save")
+        btn1.style.display = "block"
+        btn2.style.display = "none"
+        btn3.style.display = "none"
+    }
 
 
 
@@ -233,11 +232,11 @@ btn3.style.display="none"
 
 
             <p className="name close-name" onClick={hundleclose} > <a class="close" />  </p>
-            <div className="project-name" > <input name="ctl00$footContent$updateText" type="text" id="footContent_updateText" style={{display: "none"}}></input> <p id='name' >  {info.name}  </p>   <button class="btn accept update-name" style={{display: "none"}} onClick={hundleupdate} >C</button> <button class="btn accept update-name" style={{display: "none"}} id="save" onClick={hundlesave} >X</button> <button class="btn cancel " onClick={hundlecancel}  style={{display: "none"}}>C</button> </div>
-               
+            <div className="project-name" > <input name="ctl00$footContent$updateText" type="text" id="footContent_updateText" style={{ display: "none" }}></input> <p id='name' >  {info.name}  </p>   <button class="btn accept update-name" style={{ display: "none" }} onClick={hundleupdate} >C</button> <button class="btn accept update-name" style={{ display: "none" }} id="save" onClick={hundlesave} >X</button> <button class="btn cancel " onClick={hundlecancel} style={{ display: "none" }}>C</button> </div>
+
             <div className="status-section">
                 <p className="name" >Status : <span className="not-yet"  >{info.status}</span>   </p>
-      
+
                 <p className="name" >Service :<span className="branding" >Branding</span>  </p>
             </div>
 
@@ -265,30 +264,29 @@ btn3.style.display="none"
             </div>
 
             <div className="consigne"    >
-                <p className="consigne-text" > Consigne</p>
-
+                
+               
                 <div className="first-consigne"    >
+        <p className="consigne-text" > Consigne</p>
+ <textarea id="story" 
+          rows="5" cols="33" placeholder="Describe yourself here..." >type here...</textarea>
+           <button className='save-consigne' >Save</button>      
 
-
-
-
-                </div>
+</div>
                 <div className="second-consigne"    >
-
                     <div className="red-line"    ></div>
-
-
-                </div>
-
-                <div className='file-liste-consigne' >
+                     <div className='file-liste-consigne' >
                     <ul className='file-liste' >
-                        <li onClick={e => { hundleClick1(e) }} id="0" > <div className='listimge' ><p>Charte graphic</p>  <button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
-                        <li onClick={e => { hundleClick1(e) }} id="1"><div className='listimge'  ><p>Cahier de charge</p><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
-                        <li onClick={e => { hundleClick1(e) }} id="2"><div className='listimge'  ><p>Contenu du site</p><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
-                        <li onClick={e => { hundleClick1(e) }} id="3"><div className='listimge' ><p>Images</p><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
+                        <li onClick={e => { hundleClick1(e) }} id="0" ><div className='listimge' >  <div className='listimge-contanair' ><p>Charte graphic</p><img src={pdf} ></img>  </div> <button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
+                        <li onClick={e => { hundleClick1(e) }} id="1"><div className='listimge'  ><div className='listimge-contanair' ><p>Cahier de charge</p><img src={pdf} ></img></div><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
+                        <li onClick={e => { hundleClick1(e) }} id="2"><div className='listimge'  ><div className='listimge-contanair' ><p>Contenu du site</p><img src={pdf} ></img></div><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
+                        <li onClick={e => { hundleClick1(e) }} id="3"><div className='listimge' ><div className='listimge-contanair' ><p>Images</p><img src={pdf} ></img></div><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
                     </ul>
 
                 </div>
+                </div>
+
+               
             </div>
 
 

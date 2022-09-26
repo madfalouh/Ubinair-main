@@ -26,6 +26,7 @@ const Project = () => {
     const [base64, setBase64] = useState("")
     const [files, setFiles] = useState([])
     const [iframe, setIframe] = useState([])
+    const [type, setType] = useState("")
     const popupOpen = useRef()
     const getProjects = useSelector((state) => state.ListMyProjectsReducer)
 
@@ -65,7 +66,7 @@ const Project = () => {
                     iframe: setIframe,
                     popupOpen: popupOpen
                 }
-                temp.push(<ProjectCard cards={cardRef} info={info} setIframe={setIframe} ></ProjectCard>)
+                temp.push(<ProjectCard cards={cardRef} info={info} setIframe={setIframe}  setType={setType}  type={type} ></ProjectCard>)
 
             })
             console.log(temp);
@@ -109,6 +110,7 @@ const Project = () => {
     }, [projectCards])
 
     const hundleType = (e) => {
+        setType(e)
         console.log(e.target.value);
         setSearchTerm(e.target.value)
         const temp = []
@@ -128,26 +130,32 @@ const Project = () => {
                 one: one,
                 files: project.files
             }
-            temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
+            temp.push(<ProjectCard cards={cardRef} info={info} setIframe={setIframe}  setType={setType} type={type} ></ProjectCard>)
         })
         setCards(temp)
     }
 
     const hundleFilter = (e) => {
         console.log(e);
+        setType(e)
         const temp = []
         const resultsArray = projects.filter(project => project.status.toLocaleLowerCase().includes(e))
         resultsArray.map((project) => {
             var date1 = new Date(project.deadline);
+            var date2 = new Date(project.startDate);
             var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
+            var period = Math.floor((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
             const info = {
                 name: project.name,
                 price: project.price,
                 progress: project.progress,
                 deadline: deadline,
-                status: project.status
+                status: project.status,
+                period: period,
+                one: one,
+                files: project.files
             }
-            temp.push(<ProjectCard cards={cardRef} info={info} ></ProjectCard>)
+            temp.push(<ProjectCard cards={cardRef} info={info} setIframe={setIframe}  setType={setType} type={type}   ></ProjectCard>)
         })
         setCards(temp)
     }

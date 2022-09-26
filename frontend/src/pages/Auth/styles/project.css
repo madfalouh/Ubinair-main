@@ -213,7 +213,7 @@ margin-top: 4px;
 
 
 .project-card.collapsed {
-    height: 720px;
+    height: 800px;
     width: 100%;
 }
 
@@ -320,8 +320,8 @@ display: none;
 
     margin-top: 15%;
     margin-left: 3%;
-    display: flex;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .text-submit {
@@ -341,7 +341,7 @@ background-color: rgba(75, 45, 114, 0.42);
     border-radius: 33px;
 
     width: 1150px;
-    height: 293px;
+    height: 340px;
 
     font-family: 'Montserrat';
     font-style: normal;
@@ -432,24 +432,26 @@ background-color: #381c54;
 }
 
 .consigne-text {
-
+    margin-left: 5%;
     margin-top: 2%;
-    margin-left: 2%;
+    float: left;
 }
 
 .consigne {
 display: grid;
 grid-template-columns:  75% 25% ;
-column-gap: 250px;
+
 }
 
 .red-line{
-transform: translateY(7%);
-height: 250px;
+transform: translateY(4%);
+height: 300px;
 width: 5px;
 background-color: rgb(255, 255, 255);
-border-radius: 5px;
+border-radius: 61px;
 }
+
+
 
 .details {
     white-space: nowrap;
@@ -634,19 +636,78 @@ border-radius: 5px;
 .file-liste{
 list-style-type: none;
 
-margin-top: 12px;
+margin-top: 60px;
 margin-left: -20%;
 
 }
 
 .file-liste-consigne{
+margin-left: 5%;
 display: grid;
 grid-template-columns: 1fr 1fr ;
-margin-left: -15%;
+gap: 10px;
 }
 
+.first-consigne {
+width: 700px;
 
 
+
+}
+
+.second-consigne {
+
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+
+
+
+}
+
+textarea {
+
+width: 621px;
+height: 200px;
+margin-top: 2%;
+background: rgba(255, 255, 255, 0.35);
+backdrop-filter: blur(11.5px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 20px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 27px;
+/* identical to box height */
+
+text-indent: 10px;
+
+color: #000000;
+
+opacity: 0.4;
+}
+
+.save-consigne {
+
+margin-top: 2%;
+margin-left: 75%;
+
+background: #241D2B;
+
+width: 99px;
+height: 36px;
+
+
+background: #FFFFFF;
+backdrop-filter: blur(11.5px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 8px;
+}
 
 li {
 cursor: pointer;
@@ -764,9 +825,39 @@ grid-template-columns: 1fr 1fr;
 
 .listimge {
 display: grid;
-
+gap :5px;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
 
+
+}
+
+.listimg p {
+margin-top: 5px;
+margin-left: -60%;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 23px;
+    line-height: 29px;
+
+    color: #ffffff;
+
+}
+
+.listimge-contanair {
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+width: 250px;
+height: 32px;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+box-sizing: border-box;
+background: #F6EEFC;
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
 
 }
 
@@ -804,33 +895,20 @@ grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
 
 
 
-.listimge p{
+.listimge-contanair p{
 margin-top: 5px;
 
- width: 200px;   
+width:170px ;   
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 200;
-    font-size: 23px;
+    font-size: 18px;
     line-height: 29px;
     text-align: left;
-    color: #ffffff;
+    color: #321548;
 
 }
 
-.listimg p {
-margin-top: 5px;
-margin-left: -60%;
 
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 23px;
-    line-height: 29px;
-
-    color: #ffffff;
-
-}
 
 .searchIcon {
 position: absolute;
