@@ -31,6 +31,7 @@ const Project = () => {
 
     const { projects } = getProjects
     const [searchTerm, setSearchTerm] = useState('')
+    const [optionPrj, setOptionPrj] = useState(true)
 
     useEffect(() => {
 
@@ -81,9 +82,23 @@ const Project = () => {
                 dispatch(changeOne(true))
                 setOpen(false)
                 setOne(true)
+                const nodes = cardRef.current.childNodes[0]
+                const bottomSection = nodes.childNodes[3]
+                        if (bottomSection != undefined) {
+                        const bottomright = bottomSection.childNodes[1]
+                        const progressC = bottomright.childNodes[0]
+                        const progress = progressC.childNodes[1]
+                        const span = progressC.childNodes[0]
+                        const text = span.innerText
+                        var ret = text.replace('%', '');
+                        span.style.marginTop = "1%"
+                        ret = ret / 100
+                        console.log(ret);
+                        progress.style.width = "calc(700px*" + ret + ")"
+                    }
             } else {
                 const nodes = cardRef.current.childNodes[0]
-                const bottomSection = nodes.childNodes[2]
+                const bottomSection = nodes.childNodes[3]
                 if (bottomSection != undefined) {
                     dispatch(changeOne(false))
                     setOpen(true)
@@ -211,11 +226,15 @@ const Project = () => {
                 <p className='dashboard-text' > Dashboard </p>
 
                 <div className='header-element' >
-                    <div className='projects'>
-                           <select name="format" id="format">
-                            <option value="pdf">Project</option>
-                            <option value="txt">Estimation</option>
-                            </select>
+
+                    <div className='dashboard-select-button'>
+                        <button className={classNames('ds-button-option', {
+                            "selected-option": optionPrj
+                        })} value='pdf' onClick={() => { setOptionPrj(true); hundleFilter("on") }}>Projets</button>
+                        <button className={classNames('ds-button-option', {
+                            "selected-option": !optionPrj
+                        })} value='txt' onClick={() => { setOptionPrj(false); hundleFilter("not") }}>Estimations</button>
+
                     </div>
                     <div className='search'>
                         <img src={searchIcon} className="searchIcon" ></img>
