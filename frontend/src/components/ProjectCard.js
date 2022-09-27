@@ -6,6 +6,10 @@ import cirle from '../img/circle.png'
 import listimage from '../img/listimage.png'
 import file from '../img/file.png'
 import pdf from '../img/pdf.png'
+import pen from '../img/pen.svg'
+import trashcan from '../img/trash-can.svg'
+import eye from '../img/eye.svg'
+import add from '../img/add.svg'
 export default function ProjectCard({ cards, info, setIframe,setType , type  }) {
 
     const [open, setOpen] = useState(false)
@@ -232,12 +236,12 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
 
 
             <p className="name close-name" onClick={hundleclose} > <a class="close" />  </p>
-            <div className="project-name" > <input name="ctl00$footContent$updateText" type="text" id="footContent_updateText" style={{ display: "none" }}></input> <p id='name' >  {info.name}  </p>   <button class="btn accept update-name" style={{ display: "none" }} onClick={hundleupdate} >C</button> <button class="btn accept update-name" style={{ display: "none" }} id="save" onClick={hundlesave} >X</button> <button class="btn cancel " onClick={hundlecancel} style={{ display: "none" }}>C</button> </div>
+            <div className="project-name" > <input name="ctl00$footContent$updateText" type="text" id="footContent_updateText" style={{ display: "none" }}></input> <p id='name' >  {info.name}  </p>   <button class="btn accept update-name" style={{ display: "none" }} onClick={hundleupdate} ><img src={pen} width={15} ></img></button> <button class="btn accept update-name" style={{ display: "none" }} id="save" onClick={hundlesave} ><img src={add} width={15} ></img></button> <button class="btn cancel " onClick={hundlecancel} style={{ display: "none" }}><img src={trashcan} width={15} ></img></button> </div>
 
             <div className="status-section">
-                <p className="name" >Status : <span className="not-yet"  >{info.status}</span>   </p>
+                <p className="name" >Status   <span className="not-yet"   > : {info.status}</span>   </p>
 
-                <p className="name" >Service :<span className="branding" >Branding</span>  </p>
+                <p className="name" >Service <span className="branding" >: Branding</span>  </p>
             </div>
 
             <div className="bottom-section">
@@ -245,7 +249,7 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
                 <div className=" float-child bottom-left">
                     <img src={cirle} className="circles" />
 
-                    <p className="details" onClick={hundledetails} > More details </p>
+                    <p className="details" onClick={hundledetails} > Plus de details </p>
                 </div>
 
 
@@ -255,7 +259,7 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
                         <span data-value="60" style={{ width: 60 + "%" }}>{info.progress}%</span>
                         <div className="progress-bar" ref={progressRef}></div>
                     </div>
-                    <div className="deadline" ref={deadLineRef} > Deadline in {info.deadline} days </div>
+                    <div className="deadline" ref={deadLineRef} > Deadline en {info.deadline} jours </div>
                 </div>
 
 
@@ -269,18 +273,18 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
                 <div className="first-consigne"    >
         <p className="consigne-text" > Consigne</p>
  <textarea id="story" 
-          rows="5" cols="33" placeholder="Describe yourself here..." >type here...</textarea>
-           <button className='save-consigne' >Save</button>      
+          rows="5" cols="33" placeholder="Describe yourself here..." >tapez ici...</textarea>
+           <button className='save-consigne' >Enregistrer</button>      
 
 </div>
                 <div className="second-consigne"    >
                     <div className="red-line"    ></div>
                      <div className='file-liste-consigne' >
                     <ul className='file-liste' >
-                        <li onClick={e => { hundleClick1(e) }} id="0" ><div className='listimge' >  <div className='listimge-contanair' ><p>Charte graphic</p><img src={pdf} ></img>  </div> <button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
-                        <li onClick={e => { hundleClick1(e) }} id="1"><div className='listimge'  ><div className='listimge-contanair' ><p>Cahier de charge</p><img src={pdf} ></img></div><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div> </li>
-                        <li onClick={e => { hundleClick1(e) }} id="2"><div className='listimge'  ><div className='listimge-contanair' ><p>Contenu du site</p><img src={pdf} ></img></div><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
-                        <li onClick={e => { hundleClick1(e) }} id="3"><div className='listimge' ><div className='listimge-contanair' ><p>Images</p><img src={pdf} ></img></div><button class="btn cancel">C</button><button class="btn accept">C</button><button class="btn update">C</button> </div></li>
+                        <li onClick={e => { hundleClick1(e) }} id="0" ><div className='listimge' >  <div className='listimge-contanair' ><p>Charte graphic</p><img src={pdf} ></img>  </div> <button class="btn cancel"  id='btn'  ><img src={trashcan} width={15} ></img> </button><button class="btn accept" id='btn'><img src={eye} width={15} ></img></button><button class="btn update" id='btn'><img src={pen} width={15} ></img></button> </div> </li>
+                        <li onClick={e => { hundleClick1(e) }} id="1"><div className='listimge'  ><div className='listimge-contanair' ><p>Cahier de charge</p><img src={pdf} ></img></div><button class="btn cancel" id='btn'><img src={trashcan} width={15} ></img></button><button class="btn accept" id='btn'><img src={eye} width={15} ></img></button><button class="btn update " id='btn'><img src={pen} width={15} ></img></button> </div> </li>
+                        <li onClick={e => { hundleClick1(e) }} id="2"><div className='listimge'  ><div className='listimge-contanair' ><p>Contenu du site</p><img src={pdf} ></img></div><button class="btn cancel" id='btn'><img src={trashcan} width={15} ></img></button><button class="btn accept" id='btn'><img src={eye} width={15} ></img></button><button class="btn update" id='btn'><img src={pen} width={15} ></img></button> </div></li>
+                        <li onClick={e => { hundleClick1(e) }} id="3"><div className='listimge' ><div className='listimge-contanair' ><p>Images</p><img src={pdf} ></img></div><button class="btn cancel" id='btn'><img src={trashcan} width={15} ></img></button><button class="btn accept" id='btn'><img src={eye} width={15} ></img></button><button class="btn update" id='btn'><img src={pen} width={15} ></img></button> </div></li>
                     </ul>
 
                 </div>

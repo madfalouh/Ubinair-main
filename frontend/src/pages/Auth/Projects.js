@@ -269,18 +269,18 @@ const Project = () => {
                     <div className='second-section' ref={secondRef} >
 
                         <div className='todo-list' >
-                            <p className='todo-title' style={{ paddingTop: 20 + 'px' }} >My to do list</p>
+                            <p className='todo-title' style={{ paddingTop: 20 + 'px' }} >Mon to do list</p>
                             <ul className='todo-text' >
-                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload the images</p></div></li>
-                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload the names</p></div></li>
-                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload the pdf</p></div></li>
-                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload the bill</p></div></li>
+                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload les images</p></div></li>
+                                <li><div className='listimg' ><img src={listimage}   ></img><p  > upload les noms</p></div></li>
+                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload les pdf</p></div></li>
+                                <li><div className='listimg'><img src={listimage}   ></img><p  > upload les factures</p></div></li>
 
                             </ul>
                             <img src={addText} className="add-text" ></img>
                         </div>
                         <div className='contact' >
-                            <div className='chat' >chat w/ PM</div>
+                            <div className='chat' >chat avec le PM</div>
                             <div className='call' ><img src={call}></img> </div>
                         </div>
                     </div>
