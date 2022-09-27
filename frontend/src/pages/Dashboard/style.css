@@ -2,23 +2,21 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-  }
-  .bd {
+}
+.bd {
     font-family: Arial, Tahoma;
-  }
-  .btn {
-  
+}
+.btn {
     padding: 5px 10px;
     border: none;
     position: relative;
     cursor: pointer;
     overflow: hidden;
-  }
-  .btn:focus {
+}
+.btn:focus {
     outline: none;
-  }
-  .btn span {
-    
+}
+.btn span {
     background-color: #333;
     border-radius: 5px;
     color: #fff;
@@ -33,9 +31,9 @@
     top: -60px;
     transition: 0.5s;
     opacity: 0;
-  }
-  .btn span:before {
-    content: "";
+}
+.btn span:before {
+    content: '';
     position: absolute;
     bottom: -20px;
     left: 50%;
@@ -43,19 +41,19 @@
     border-style: solid;
     border-width: 10px;
     border-color: #333 transparent transparent;
-  }
-  .btn:hover {
+}
+.btn:hover {
     overflow: visible;
-  }
-  .btn:hover span {
+}
+.btn:hover span {
     opacity: 1;
-  }
-  [data-position="bottom"] span {
+}
+[data-position='bottom'] span {
     top: auto;
     bottom: -60px;
-  }
-  [data-position="bottom"] span:before {
+}
+[data-position='bottom'] span:before {
     bottom: auto;
     top: -20px;
     border-color: transparent transparent #333;
-  }
+}

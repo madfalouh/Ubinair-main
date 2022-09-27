@@ -37,7 +37,13 @@ import {
     DELETE_MOODB_IMG_REQUEST,
     ADD_ABOUT_BRAND_RESET,
     DELETE_BRIEF_FILE_RESET,
-    DELETE_MOODB_IMG_RESET
+    DELETE_MOODB_IMG_RESET,
+    PROJET_CREATE_ONE ,
+    PROJET_CREATE_ONE_SUCCESS ,  
+    PROJET_CREATE_ONE_FAIL, 
+    PROJET_ADD,
+    PROJET_ADD_SUCCESS,
+    PROJET_ADD_FAIL
 } from '../actions/constants/projetconstants'
 export const ProjetcCreateReducer = (state = {}, action) => {
     switch (action.type) {
@@ -53,6 +59,20 @@ export const ProjetcCreateReducer = (state = {}, action) => {
             return state
     }
 }
+
+export const ProjetcCreateReducerOne = (state ={}, action) => {
+    switch (action.type) {
+        case PROJET_CREATE_ONE:
+            return { loading: true }
+        case PROJET_CREATE_ONE_SUCCESS:
+            return { loading: false, success: true, stateOne: action.payload }
+        case PROJET_CREATE_ONE_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
 export const ListMyProjectsReducer = (state = { projects: [] }, action) => {
     switch (action.type) {
         case MY_PROJECTS_REQUEST:
@@ -128,6 +148,24 @@ export const projectUpdateReducer = (state = { project: {} }, action) => {
             return state
     }
 }
+
+export const projectADDReducer = (state = { project: {} }, action) => {
+    switch (action.type) {
+        case PROJET_ADD:
+            return { loading: true }
+        case PROJET_ADD_SUCCESS:
+            return {
+                loading: false,
+                success: true,
+                project: action.payload,
+            }
+        case PROJET_ADD_FAIL:
+            return { loading: false, err: action.payload }
+        default:
+            return state
+    }
+}
+
 export const ListAllProjectsReducer = (state = { projects: [] }, action) => {
     switch (action.type) {
         case ALL_PROJECTS_REQUEST:

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Montserrat;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ::-webkit-scrollbar {
+  background: rgba(217, 217, 217, 0.071);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(174, 166, 177);
+  border-radius: 20px;
+} */
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto; */
+  /* background-color: red; */
+  /* margin: auto; */
+  /* background-color: blue; */
+}

@@ -27,9 +27,13 @@ import {
     AddColMoodBoardReducer,
     AddAboutBrandReducer,
     DeleteMoodBoardImgReducer,
-    DeleteBriefFileReducer
+    DeleteBriefFileReducer,
+    ProjetcCreateReducerOne , 
+    projectADDReducer
 } from './reducers/projectReducer'
 import token from './reducers/tokenReducer'
+
+
 
 const reducer = combineReducers({
     auth: authReducer,
@@ -50,7 +54,9 @@ const reducer = combineReducers({
     AddColMoodBoardReducer,
     AddAboutBrandReducer,
     DeleteMoodBoardImgReducer,
-    DeleteBriefFileReducer
+    DeleteBriefFileReducer , 
+    ProjetcCreateReducerOne ,
+    projectADDReducer , 
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

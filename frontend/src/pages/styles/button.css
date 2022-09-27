@@ -1,0 +1,93 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 50px;
+  /* font-weight: 700;
+  font-size: 25px; */
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.button-icon {
+  display: flex;
+}
+
+.no-icon {
+  display: none;
+}
+
+.button-text + .button-icon {
+  margin-left: 10px;
+}
+
+.white-button {
+  background-color: white;
+  color: #5d3381;
+}
+
+.white-button svg {
+  stroke: #5d3381;
+}
+
+.white-button:hover {
+  background-color: #5d3381;
+  color: white;
+}
+
+.white-button:hover svg {
+  stroke: white;
+}
+
+.purple-glow:hover {
+  box-shadow: 0px 0px 58.212px #5d3381, 0px 0px 33.264px #5d3381,
+    0px 0px 19.404px #5d3381, 0px 0px 9.702px #5d3381, 0px 0px 2.772px #5d3381,
+    0px 0px 1.386px #5d3381;
+}
+
+.purple-button {
+  background-color: #5d3381;
+  color: white;
+  box-shadow: 0px 0px 58.212px #5d3381, 0px 0px 33.264px #5d3381,
+    0px 0px 19.404px #5d3381, 0px 0px 9.702px #5d3381, 0px 0px 2.772px #5d3381,
+    0px 0px 1.386px #5d3381;
+}
+
+.purple-button svg {
+  stroke: white;
+}
+
+.purple-button:hover {
+  background-color: white;
+  color: #5d3381;
+  box-shadow: unset;
+}
+
+.purple-button:hover svg {
+  stroke: #5d3381;
+}
+
+@media (max-width: 1280px) {
+  .button-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .button-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 430px) {
+  .button-text {
+    font-size: 18px;
+  }
+}
