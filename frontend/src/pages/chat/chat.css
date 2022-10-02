@@ -22,8 +22,8 @@
 
 .chat-search-bar {
     background-color: rgb(217, 217, 217, 37%);
-    width: 250px;
-    padding: 10px 15px;
+    width: 270px;
+    padding: 6px 15px;
     /* height: 50px; */
     border-radius: 50px;
     margin-top: 50px;
@@ -97,4 +97,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.contact-list {
+    margin-top: 1.5rem;
 }

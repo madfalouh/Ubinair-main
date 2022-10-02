@@ -1,5 +1,7 @@
 import React from 'react'
 import './chat.css'
+import ChatContact from './ChatContact'
+import Message from './Message'
 
 function ChatPage() {
     return (
@@ -18,8 +20,19 @@ function ChatPage() {
                         placeholder="Search ..."
                     />
                 </div>
+                <div className='contact-list'>
+                    <ChatContact contactName="Mr. john doe" latestMessage="shgjfdlkhgfdjglfhdhssjlhdlgfdgjkhdsfgjkshdfglkjdsfhgsdflkjghdsflgsdf"/>
+                    <ChatContact contactName="Mr. john doe" latestMessage="shgjfdlkhgfdjglfhdhssj"/>
+
+                </div>
             </div>
             <div className="chat-area">
+                <div className='message-area'>
+                    <Message sentBy="other" nameOfSender="Mr. john doe" messageContent="fjghsfdhkljfmhljhmdlkjdsmh"/>
+                    <Message followUp="true" sentBy="other" nameOfSender="Mr. john doe" messageContent="fjghsfdhkljfmhljhmdlkjdsmh"/>
+                    <Message sentBy="user" messageContent="fjghsfdhkljfmhljhmdlkjdsmh"/>
+                    <Message sentBy="user" followUp="true" messageContent="fjghsfdhkljfmhljhmdlkjdsmh"/>
+                </div>
                 <div className="write-area">
                     <img
                         src={require('./chatAssets/paperclip.svg').default}

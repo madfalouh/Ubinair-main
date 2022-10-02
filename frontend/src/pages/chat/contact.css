@@ -1,0 +1,25 @@
+.chat-contact {
+    padding: 0.6rem .4rem;
+}
+
+.chat-contact + .chat-contact {
+    border-top: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.chat-contact:hover {
+    cursor: pointer;
+    background-color: rgba(72, 34, 107, 0.6);
+}
+
+.contact-name {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.contact-latest-message {
+    font-size: 15px;
+    color: rgb(165, 165, 165);
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
