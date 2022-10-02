@@ -1,4 +1,5 @@
 import React from 'react'
+import Sidebar from '../../components/sidebar'
 import './chat.css'
 import ChatContact from './ChatContact'
 import Message from './Message'
@@ -6,7 +7,9 @@ import Message from './Message'
 function ChatPage() {
     return (
         <div className="chat-page">
-            <div className="sidebar">nav</div>
+            <div className="sidebar">
+            <Sidebar ></Sidebar>
+            </div>
             <div className="users-list">
                 <div className="chat-search-bar">
                     <img

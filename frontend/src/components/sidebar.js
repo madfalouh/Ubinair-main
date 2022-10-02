@@ -7,7 +7,7 @@ import navLogo4 from '../img/nav4.png'
 import navLogo5 from '../img/nav5.png'
 
 import '../pages/Auth/styles/dashboardnav.css'
-export default function Sidebar({el , card ,cards , second}) {
+export default function Sidebar() {
 
 
 
@@ -21,25 +21,6 @@ toggle()
 const  toggle = ()=> {
 var element = document.getElementById("sidenav");
 element.classList.toggle("is-collapsed");
-if(element.classList.contains("is-collapsed") ) {
-el.current.style.marginLeft="0%"
-el.current.style.marginLeft="0%"
-
-
-
-const nodes = card.current.childNodes[0]
-
-console.log(card.current.childNodes.length);
-
-
-
-}else{
-el.current.style.marginLeft="9%"
-
-
-
-}
-console.log(el);
 }
 
 return (
