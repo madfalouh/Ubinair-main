@@ -23,9 +23,21 @@ export const dispatchLogin = (creds) => async (dispatch) => {
                 'Content-Type': 'application/json',
             },
         }
-
+        let data=''  ; 
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:3000/auth/login',
+            headers: config.headers,
+            data:creds 
+        }).then( (response) =>{
+            data=response 
+            console.log(data);
+        }).catch( (err) =>{
+            console.log(err);
+        })
+  
         
-const { data } = await axios.post('/user/login', creds, config)
+  
    dispatch({
             type: GET_TOKEN_REQUEST,
         })
@@ -62,8 +74,17 @@ export const dispatchRegister = (creds) => async (dispatch) => {
                 'Content-Type': 'application/json',
             },
         }
-
-        const { data } = await axios.post('user/register', creds, config)
+        let data=''  ; 
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:3000/users/',
+            headers: config.headers,
+            data:creds 
+        }).then( (response) =>{
+            data=response 
+        }).catch( (err) =>{
+            console.log(err);
+        })
         dispatch({
             type:  USER_REGISTER_SUCCESS,
             payload: data,
@@ -71,6 +92,7 @@ export const dispatchRegister = (creds) => async (dispatch) => {
 
         localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (error) {
+        console.log(error);
         dispatch({
             type:  USER_REGISTER_FAIL,
             payload:

@@ -24,7 +24,6 @@ const users = await userService.finduserbyid(User ,req.params.id)
 res.json(users)
 }catch(err){
 return res.status(500).json({ msg: err.message })
-
 }
 }
 async function  finduserbyname (username) {
@@ -46,12 +45,12 @@ async function adduser (req , res){
 console.log(req.body);
 const password = await  Encryption.cryptPassword(req.body.password)
 const user = new User({
-username:req.body.username , 
+fullName:req.body.fullName , 
 email: req.body.email,
 password:password,
 token:"token",
-firstName:req.body.firstName,
-lastName:req.body.lastName,
+domain:req.body.domain,
+phoneNumber:req.body.phoneNumber,
 type : req.body.type,
 })
 

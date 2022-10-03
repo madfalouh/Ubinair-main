@@ -27,7 +27,7 @@ const projectController = require('./Controllers/projectController')
 const AuthController = require('./Controllers/AuthController')
 app.use('/users',userController)
 app.use('/projects',projectController)
-app.use('/Auth',AuthController)
+app.use('/auth',AuthController)
 app.listen(port, ()=> {
 
 console.log(`port is listening on ${port}`);

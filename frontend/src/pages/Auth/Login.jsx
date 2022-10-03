@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { dispatchLogin, dispatchGetUser } from '../../redux/actions/authAction'
+import { dispatchLogin, dispatchGetUser, dispatchRegister } from '../../redux/actions/authAction'
 import { isEmpty, isEmail } from '../../utils/validation/Validation'
 import { useDispatch, useSelector } from 'react-redux'
 import ReactDOM from 'react-dom'
@@ -12,6 +12,10 @@ import classNames from 'classnames'
 const initialState = {
     email: '',
     password: '',
+    fullName : '', 
+    domain : '' ,
+    phoneNumber : '' ,
+    type:'user' , 
     err: '',
     success: '',
 }
@@ -36,7 +40,7 @@ const Login = () => {
     const two = useRef()
     const three = useRef()
     const [creds, setCreds] = useState(initialState)
-    const { email, password, err, success } = creds
+    const { email, password, phoneNumber , domain , fullName , type ,err, success } = creds
     const [open , setOpen] = useState(false)
     const auth = useSelector((state) => state.auth)
     const token = useSelector((state) => state.token)
@@ -54,6 +58,7 @@ const Login = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log(creds);
         if (isEmpty(email) | isEmpty(password))
             return setCreds({
                 ...creds,
@@ -69,22 +74,23 @@ const Login = () => {
             })
 
         dispatch(dispatchLogin(creds))
+             
+      console.log(token);
+    }
+
+    const handleRegister = (e) => {
+        e.preventDefault()
+    if(nextButtonRef.current.textContent === "Confirm"){
+        
+        dispatch(dispatchRegister(creds))
+        handleMoveSignUp()
+    }
+
+        
 
     }
 
 
-    useEffect(() => {
-
-        if (userInfo) {
-
-
-
-
-            navigate('/')
-
-
-        }
-    }, [navigate, userInfo, dispatch])
 
     useEffect(() => {
         one.current.style.fontWeight = "bold"
@@ -118,6 +124,7 @@ i.current++
 
 
     const NextItem = (e) => {
+        e.preventDefault()
         j.current++;
         if (j.current == 1) {
             backRef.current.style.display = "flex"
@@ -166,12 +173,12 @@ i.current++
 
                     <p class="title"> Hello ! </p>
                     <label for="email" class="email" id='label' >Email</label>
-                    <input type="text" className='input-field' />
+                    <input type="text" className='input-field' name="email"  onChange={(e)=>{handleChange(e)}} />
                     <label for="Password" class="password" id='label'>Password</label>
-                    <input type="password" className='input-field' />
+                    <input type="password" className='input-field' name="password"  onChange={(e)=>{handleChange(e)}} />
                     <p className='forgot-password'>forgot password ?</p>
                     <br />
-                    <button class="sign-in" id="confirm" onClick={() => { navigate('/projects') }} >Confirm</button>
+                    <button class="sign-in" id="confirm" onClick={handleSubmit} >Confirm</button>
                     <br /> <br />
                     <div class="line-container" id='orline' >
                         <div class="line"></div>
@@ -199,26 +206,26 @@ i.current++
                     </div>
 
                     <div className='step1' ref={step1Ref} >
-                        <label for="email" class="email">Full Name</label>
-                        <input type="text" className='input-field' />
+                        <label for="email" class="email" >Full Name</label>
+                        <input type="text" className='input-field' name="fullName"  onChange={(e)=>{handleChange(e)}} />
                         <label for="Password" class="password">Email</label>
-                        <input type="text" className='input-field' />
+                        <input type="text" className='input-field' name="email"  onChange={(e)=>{handleChange(e)}} />
                     </div>
                     <div className='step2' ref={step2Ref}  >
                         <label for="email" class="email">Phone Number</label>
-                        <input type="text" className='input-field' />
+                        <input type="text" className='input-field'  name="phoneNumber"  onChange={(e)=>{handleChange(e)}} />
                         <label for="Password" class="password">Domaine</label>
-                        <input type="text" className='input-field' />
+                        <input type="text" className='input-field' name="domain"  onChange={(e)=>{handleChange(e)}} />
                     </div>
                     <div className='step3' ref={step3Ref}  >
                         <label for="email" class="email">Password</label>
-                        <input type="password" className='input-field' />
+                        <input type="password" className='input-field' name="password"  onChange={(e)=>{handleChange(e)}} />
                         <label for="Password" class="password">Re-enter Password</label>
                         <input type="password" className='input-field' />
                     </div>
                     <br />
                     <br />
-                    <button class="sign-in" id="confirm" onClick={NextItem} ref={nextButtonRef} >Next</button>
+                    <button class="sign-in" id="confirm" onClick={ (e) => { handleRegister(e) ; NextItem(e) }} ref={nextButtonRef} >Next</button>
                     <br /> <br />
                     <div class="line-container" id='orline' >
                         <div class="line"></div>

@@ -1,11 +1,6 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-username : {
-type:String, 
-required:true , 
-index: {unique: true, dropDups: true}
-},
 email : {
 type:String, 
 required:true, 
@@ -19,13 +14,17 @@ token: {
 type:String, 
 required:true
 },
-firstName: {
+fullName: {
 type:String, 
 required:true
 },
-lastName: {
+phoneNumber: {
 type:String, 
 required:true
+} ,
+domain: {
+    type:String, 
+    required:true
 } , 
 type:{
 type:String, 
