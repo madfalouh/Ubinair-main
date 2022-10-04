@@ -74,7 +74,7 @@ const Login = () => {
             })
 
         dispatch(dispatchLogin(creds))
-             
+             console.log("jkgsdfjkfdg");
       console.log(token);
     }
 
@@ -89,6 +89,16 @@ const Login = () => {
         
 
     }
+
+
+
+
+  useEffect(() => {
+        if(userInfo){
+            navigate("/chat")
+            }
+        // render()
+    }, [userInfo])
 
 
 

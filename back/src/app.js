@@ -25,9 +25,13 @@ res.send("app is working")
 const userController = require('./Controllers/userController')
 const projectController = require('./Controllers/projectController')
 const AuthController = require('./Controllers/AuthController')
+const messageController = require('./Controllers/messageController');
 app.use('/users',userController)
 app.use('/projects',projectController)
 app.use('/auth',AuthController)
+app.use('/chat',messageController.router)
+const server = require('http').createServer(this.app);
+messageController.initSockets(server)
 app.listen(port, ()=> {
 
 console.log(`port is listening on ${port}`);

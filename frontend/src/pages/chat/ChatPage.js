@@ -1,10 +1,50 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import './chat.css'
 import ChatContact from './ChatContact'
 import Message from './Message'
 
+
+
+
+
+
+
 function ChatPage() {
+
+
+const [users , setUsers] = useState([]) 
+
+useEffect ( async ()=>  {
+let temp = []
+
+await axios({
+
+url:'http://localhost:3000/users' ,
+method : "get" , 
+headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
+    
+      },
+}).then((res)=>{
+
+res.data.map((res)=>{
+console.log(res);
+temp.push(<ChatContact contactName={res.fullName} latestMessage="shgjfdlkhgfdj"/>)
+
+
+})
+
+setUsers(temp)
+
+} )
+
+} , [] )
+
+
+
     return (
         <div className="chat-page">
             <div className="sidebar">
@@ -24,8 +64,7 @@ function ChatPage() {
                     />
                 </div>
                 <div className='contact-list'>
-                    <ChatContact contactName="Mr. john doe" latestMessage="shgjfdlkhgfdjglfhdhssjlhdlgfdgjkhdsfgjkshdfglkjdsfhgsdflkjghdsflgsdf"/>
-                    <ChatContact contactName="Mr. john doe" latestMessage="shgjfdlkhgfdjglfhdhssj"/>
+                  {users}
 
                 </div>
             </div>
