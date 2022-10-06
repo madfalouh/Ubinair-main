@@ -95,7 +95,12 @@ const Login = () => {
 
   useEffect(() => {
         if(userInfo){
-            navigate("/chat")
+            console.log("jidfjindzfgiunjrejfginrethretgrttttttttttt");
+            console.log(userInfo);
+            sessionStorage.setItem("token",""+userInfo.data)
+            const token = sessionStorage.getItem("token")
+            console.log(token);
+            //navigate("/chat")
             }
         // render()
     }, [userInfo])

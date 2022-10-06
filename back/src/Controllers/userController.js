@@ -19,6 +19,8 @@ return res.status(500).json({ msg: err.message })
 }
 }
 async function  finduserbyid (req , res) {
+
+console.log( "ezfujirez"+ req.params.id);
 try{
 const users = await userService.finduserbyid(User ,req.params.id)
 res.json(users)

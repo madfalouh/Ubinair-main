@@ -18,6 +18,7 @@ async function findmessages(req, res) {
 }
 async function findmessagebyuser(req, res) {
     try {
+        console.log(req.params.id)
         const messageaddmessages = await messageService.findmessagebyuser(Message, req.params.id)
         res.send(messageaddmessages)
     } catch (err) {
@@ -29,9 +30,9 @@ async function addmessage(req, res) {
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1;
     let dd = today.getDate();
-    let hh = today.getHours;
-    let mn = today.getMinutes;
-    let ss = today.getSeconds;
+    let hh = today.getHours();
+    let mn = today.getMinutes();
+    let ss = today.getSeconds();
     const message = new Message({
         content: req.body.content,
         userId: req.body.userId,
@@ -48,16 +49,19 @@ async function addmessage(req, res) {
     }
 }
 function initSockets(server) {
-    const wss = new WebSocket.Server({ server: server, path: 'localhost:3000/api/chats' });
+
+
+console.log(server);
+    const wss = new WebSocket.Server({ server: server, port: 8000  });
+   
     wss.on('connection', (ws, req) => {
         console.log('A new client Connected!');
         ws.on('message', async (message) => {
-            const messageStored = addmessage(JSON.parse(message.toString()))
-            console.log(messageStored);
+            const messageStored = JSON.parse(message.toString())
             wss.clients.forEach((client) => {
                 if (messageStored) {
                     client.send(JSON.stringify(messageStored));
-                    console.log(messageStored);
+                    console.log("tgrt" +messageStored);
                 } else {
                     client.send('ERROR');
                 }
@@ -67,9 +71,14 @@ function initSockets(server) {
     )
 }
 
+const sockserver = new WebSocket.Server({ port: 9000 });
+sockserver.on('connection', (ws) => {
+   console.log('New client connected!'); 
+   ws.on('close', () => console.log('Client has disconnected!'));
+});
 
 
 
 
-module.exports = {router: router , initSockets: initSockets }
+module.exports = {router: router , initSockets: initSockets , sockserver:sockserver }
 

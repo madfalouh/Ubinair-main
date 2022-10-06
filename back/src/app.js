@@ -31,7 +31,7 @@ app.use('/projects',projectController)
 app.use('/auth',AuthController)
 app.use('/chat',messageController.router)
 const server = require('http').createServer(this.app);
-messageController.initSockets(server)
+messageController.initSockets()
 app.listen(port, ()=> {
 
 console.log(`port is listening on ${port}`);
