@@ -55,6 +55,7 @@ const Project = () => {
                 //console.log(Date.now()/date1.getTime());
                 console.log(one);
                 const info = {
+                    id : project._id ,
                     name: project.name,
                     price: project.price,
                     progress: project.progress,
@@ -106,6 +107,7 @@ const Project = () => {
             var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
             var period = Math.floor((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
             const info = {
+                id : project._id ,
                 name: project.name,
                 price: project.price,
                 progress: project.progress,
@@ -128,6 +130,7 @@ const Project = () => {
             var date1 = new Date(project.deadline);
             var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
             const info = {
+                id : project._id ,
                 name: project.name,
                 price: project.price,
                 progress: project.progress,

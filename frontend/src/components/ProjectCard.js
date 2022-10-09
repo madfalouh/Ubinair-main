@@ -1,19 +1,21 @@
 import classNames from 'classnames'
 import { useEffect, useRef, useState } from "react"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 import cirle from '../img/circle.png'
 
 import pdf from '../img/pdf.png'
+import { UpdateProject } from '../redux/actions/projectActions'
 
 
 export default function ProjectCard({ cards, info, setIframe,setType , type  }) {
-
+    const dispatch = useDispatch()
     const [open, setOpen] = useState(false)
     const [update, setUpdate] = useState(false)
     const [activate, setAtivate] = useState(false)
     const [cancel, setCancel] = useState(false)
     const [save, setSave] = useState(false)
+    const [typ, setTyp] = useState("")
     const progressbar = info.progress / 100
     const deadLineRef = useRef()
     const progressRef = useRef() 
@@ -173,8 +175,10 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
     const hundlesave = () => {
         setAtivate(false)
         setUpdate(true)
+        info.name=typ
+        console.log(info );
+        dispatch(UpdateProject(info))
         
-
 
     }
 
@@ -195,7 +199,7 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
 
 
             <p className="name close-name" onClick={hundleclose} > <a class="close" />  </p>
-            <div className="project-name" > <input name="ctl00$footContent$updateText" type="text" className={classNames("input-name", {
+            <div className="project-name" > <input name="ctl00$footContent$updateText" type="text" onChange={ (e)=>{setTyp(e.target.value)} }  className={classNames("input-name", {
                 "collapsed": activate
             })} id="footContent_updateText"></input> <p id='name'  className={classNames("projectName", {
                 "collapsed": activate

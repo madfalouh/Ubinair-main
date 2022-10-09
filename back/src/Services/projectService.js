@@ -42,11 +42,10 @@ await Project.deleteOne({_id:id})
 console.log(err)
 }
 }, updateproject : async function updateproject(project) {  
+    console.log(project.id );
 try{
 await Project.findByIdAndUpdate(project.id ,{ 
 name : project.name,  
-price :project.price ,
-description: project.description,
  },function (err, docs) {
 })
 }catch(err){

@@ -30,6 +30,8 @@ app.use('/users',userController)
 app.use('/projects',projectController)
 app.use('/auth',AuthController)
 app.use('/chat',messageController.router)
+app.use(express.json({limit: '200mb'}));
+app.use(express.urlencoded({limit: '200mb'}));
 messageController.initSockets()
 app.listen(port, ()=> {
 

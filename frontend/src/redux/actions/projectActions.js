@@ -223,6 +223,11 @@ export const Getprojectdetails = (id) => async (dispatch, getState) => {
     }
 }
 export const UpdateProject = (project) => async (dispatch) => {
+    
+    const projectDetail ={
+        id : project.id ,
+        name : project.name ,
+    }
     try {
         dispatch({ type: PROJET_UPDATE_REQUEST })
         const config = {
@@ -233,20 +238,18 @@ export const UpdateProject = (project) => async (dispatch) => {
         }
         await axios({
             method: 'POST',
-            url: 'http://localhost:3000/projectst/',
+            url: 'http://localhost:3000/projects/update',
             headers: config.headers,
-            data : project
+            data : projectDetail
+        }).then((res)=>{
+            console.log(res);
+        }).catch((err)=>{
+            console.log(err);
         })
-        toast.dismiss()
-        toast.loading('Please wait...', {
-            position: toast.POSITION.TOP_CENTER,
-        })
+      
 
         dispatch({ type: PROJET_UPDATE_SUCCESS, payload: 'updated'})
-        toast.dismiss()
-        toast.success('Succès Update !', {
-            position: toast.POSITION.TOP_CENTER,
-        })
+     
     } catch (error) {
         dispatch({
             type: PROJET_UPDATE_FAIL,
