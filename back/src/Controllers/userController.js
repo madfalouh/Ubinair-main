@@ -88,7 +88,8 @@ email :req.body.email,
 password :req.body.password,
 firstName :req.body.firstName,
 lastName :req.body.lastName,
-type:req.body.type
+type:req.body.type ,
+todolist : req.body.todolist
 })
 try{
 const users = await userService.updateuser(user)

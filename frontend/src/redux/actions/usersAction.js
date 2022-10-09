@@ -45,8 +45,7 @@ export const GetAllUsers = (token) => async (dispatch) => {
         })
     }
 }
-export const getUserDetails = (id, token) => async (dispatch) => {
-const tokenn = localStorage.getItem("token")
+export const getUserDetails = (id) => async (dispatch) => {
     try {
         dispatch({
             type: USER_DETAILS_REQUEST,
@@ -54,12 +53,13 @@ const tokenn = localStorage.getItem("token")
 
         const config = {
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
-                Authorization: tokenn,
             },
         }
-
-        const { data } = await axios.get(`/user/${id}`, config)
+        console.log(id);
+        const { data } = await axios.get(`http://localhost:3000/users/${id}`, config)
+        
         dispatch({
             type: USER_DETAILS_SUCCESS,
             payload: {
@@ -77,6 +77,8 @@ const tokenn = localStorage.getItem("token")
         })
     }
 }
+
+
 export const updateUserStatus =
     (id, checkAdmin, client) => async (dispatch, getState) => {
         try {

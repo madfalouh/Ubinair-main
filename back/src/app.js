@@ -30,7 +30,6 @@ app.use('/users',userController)
 app.use('/projects',projectController)
 app.use('/auth',AuthController)
 app.use('/chat',messageController.router)
-const server = require('http').createServer(this.app);
 messageController.initSockets()
 app.listen(port, ()=> {
 

@@ -255,7 +255,7 @@ const Project = () => {
                     <div className='second-section' ref={secondRef} >
 
                         <div className='todo-list' >
-                            <p className='todo-title' style={{ paddingTop: 20 + 'px' }} >Liste à faire</p>
+                            <p className='todo-title'  >Liste à faire</p>
                             <ul className='todo-text' >
                                 <li><div className='listimg' ><img src={listimage}   ></img><p  >télécharger les images</p></div></li>
                                 <li><div className='listimg' ><img src={listimage}   ></img><p  >télécharger les noms</p></div></li>

@@ -30,5 +30,9 @@ type:{
 type:String, 
 enum : ['user','admin' , 'moderator' , 'superadmin' ],
 },
+todolist: 
+    {
+        type : String ,
+    } ,
 })
 module.exports=mongoose.model('User',userSchema)

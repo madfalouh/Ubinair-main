@@ -173,6 +173,9 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
     const hundlesave = () => {
         setAtivate(false)
         setUpdate(true)
+        
+
+
     }
 
 

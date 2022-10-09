@@ -10,6 +10,7 @@ import {
     userRegisterReducer,
     getUserReducer,
     userDetailsReducer,
+    
 } from './reducers/userReducer'
 import {
     getAllUsersReducer,
@@ -32,7 +33,7 @@ import {
     projectADDReducer
 } from './reducers/projectReducer'
 import token from './reducers/tokenReducer'
-
+import { chatCreateReducer, chatFetchMsgReducer } from './reducers/chatReducer'
 
 
 const reducer = combineReducers({
@@ -57,6 +58,8 @@ const reducer = combineReducers({
     DeleteBriefFileReducer , 
     ProjetcCreateReducerOne ,
     projectADDReducer , 
+    msgs :chatFetchMsgReducer , 
+    createMsg :chatCreateReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

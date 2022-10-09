@@ -16,7 +16,7 @@ return messages
 findmessagebyuser:async function  findmessagebyuser (Message,userId) {
 let messages
 try{
-messages = await Message.find({userId:userId}).sort({date:-1})
+messages = await Message.find({ "$or":[ {userId:userId} , {receiverId:userId}]}).sort({date:1})
 }catch(err){
 console.log(err);
 }

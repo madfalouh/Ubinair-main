@@ -38,7 +38,7 @@ async function addmessage(req, res) {
         userId: req.body.userId,
         senderId: req.body.senderId,
         receiverId: req.body.receiverId,
-        date: mm + "/" + dd + "/" + yyyy + "/" + hh + ":" + mn + ":" + ss,
+        date: today,
     })
     try {
         await messageService.addmessage(message)
@@ -57,11 +57,31 @@ console.log(server);
     wss.on('connection', (ws, req) => {
         console.log('A new client Connected!');
         ws.on('message', async (message) => {
+            const today = new Date()
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1;
+            let dd = today.getDate();
+            let hh = today.getHours();
+            let mn = today.getMinutes();
+            let ss = today.getSeconds();
             const messageStored = JSON.parse(message.toString())
+            const messageObj = new Message({
+                content: messageStored.content,
+                userId: messageStored.userId,
+                senderId: messageStored.senderId,
+                receiverId: messageStored.receiverId,
+                date: today,
+            })
+            try {
+                await messageService.addmessage(messageObj)
+                console.log("added");
+            } catch (err) {
+                console.log(err);
+            }
             wss.clients.forEach((client) => {
                 if (messageStored) {
                     client.send(JSON.stringify(messageStored));
-                    console.log("tgrt" +messageStored);
+                    
                 } else {
                     client.send('ERROR');
                 }
@@ -71,14 +91,9 @@ console.log(server);
     )
 }
 
-const sockserver = new WebSocket.Server({ port: 9000 });
-sockserver.on('connection', (ws) => {
-   console.log('New client connected!'); 
-   ws.on('close', () => console.log('Client has disconnected!'));
-});
 
 
 
 
-module.exports = {router: router , initSockets: initSockets , sockserver:sockserver }
+module.exports = {router: router , initSockets: initSockets  }
 

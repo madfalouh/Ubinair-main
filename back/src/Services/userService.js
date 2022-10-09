@@ -66,7 +66,8 @@ email :user.email ,
 password :password ,
 firstName:user.firstName ,
 lastName: user.lastName,
-type : user.type
+type : user.type,
+todolist : req.todolist
  },function (err, docs) {
 })
 }catch(err){

@@ -225,16 +225,24 @@ export const Getprojectdetails = (id) => async (dispatch, getState) => {
 export const UpdateProject = (project) => async (dispatch) => {
     try {
         dispatch({ type: PROJET_UPDATE_REQUEST })
-        const { data } = await axios.put(
-            `/projets/updateproject/${project[0]._id}`,
-            project
-        )
+        const config = {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+        }
+        await axios({
+            method: 'POST',
+            url: 'http://localhost:3000/projectst/',
+            headers: config.headers,
+            data : project
+        })
         toast.dismiss()
         toast.loading('Please wait...', {
             position: toast.POSITION.TOP_CENTER,
         })
 
-        dispatch({ type: PROJET_UPDATE_SUCCESS, payload: data })
+        dispatch({ type: PROJET_UPDATE_SUCCESS, payload: 'updated'})
         toast.dismiss()
         toast.success('Succès Update !', {
             position: toast.POSITION.TOP_CENTER,
