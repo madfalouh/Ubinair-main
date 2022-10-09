@@ -29,7 +29,8 @@ console.log(user);
                     fullName:user[0].fullName,
                     domain:user[0].domain,
                     phoneNumber:user[0].phoneNumber,
-                    type:user[0].type
+                    type:user[0].type , 
+                    todolist :user[0].todolist
                     },
                     "tokenkey",
                     {

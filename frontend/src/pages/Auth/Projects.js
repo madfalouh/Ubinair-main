@@ -11,6 +11,9 @@ import addText from '../../img/addText.png'
 import listimage from '../../img/listimage.png'
 import searchIcon from '../../img/search-icon.png'
 import filter from '../../img/filter.png'
+import { getUserDetails } from '../../redux/actions/usersAction'
+import jwt_decode from "jwt-decode";
+
 const Project = () => {
     const cardRef = useRef()
     const cardsRef = useRef()
@@ -28,11 +31,14 @@ const Project = () => {
     const [iframe, setIframe] = useState([])
     const popupOpen = useRef()
     const getProjects = useSelector((state) => state.ListMyProjectsReducer)
-
+    const token = sessionStorage.getItem("token")
+    const decoded_token = jwt_decode(token);
+    const details = useSelector((state) => state.userDetailsReducer)
     const { projects } = getProjects
     const [searchTerm, setSearchTerm] = useState('')
     const [optionPrj, setOptionPrj] = useState(true)
-
+    const [todolist, setTodolist] = useState([])
+    const bool =useRef(true)
 
     useEffect(() => {
 
@@ -41,6 +47,27 @@ const Project = () => {
 
     }, [])
 
+    useEffect(() => {
+
+        dispatch(getUserDetails(decoded_token.id))
+    }, [])
+
+
+    useEffect(() => {
+
+        if (details.user != undefined && details.user._id != undefined && bool.current==true ) {
+
+          console.log(details.user.todolist);
+          let arr = details.user.todolist.split('-'); 
+          let temp = []
+          arr.map((msg)=>{if(msg!=""){
+            console.log(msg);
+            temp.push(<li><div className='listimg'><img src={listimage}   ></img><p  >{msg}</p></div></li>)
+          }})
+          setTodolist(temp)
+          bool.current=false
+        }
+    }, [details])
 
     useEffect(() => {
 
@@ -260,11 +287,7 @@ const Project = () => {
                         <div className='todo-list' >
                             <p className='todo-title'  >Liste à faire</p>
                             <ul className='todo-text' >
-                                <li><div className='listimg' ><img src={listimage}   ></img><p  >télécharger les images</p></div></li>
-                                <li><div className='listimg' ><img src={listimage}   ></img><p  >télécharger les noms</p></div></li>
-                                <li><div className='listimg'><img src={listimage}   ></img><p  >télécharger les pdf</p></div></li>
-                                <li><div className='listimg'><img src={listimage}   ></img><p  >télécharger la facture</p></div></li>
-
+                                {todolist}
                             </ul>
                             <img src={addText} className="add-text" ></img>
                         </div>

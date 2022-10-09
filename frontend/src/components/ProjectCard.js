@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 import cirle from '../img/circle.png'
-
 import pdf from '../img/pdf.png'
 import { UpdateProject } from '../redux/actions/projectActions'
+import { getUserDetails } from '../redux/actions/usersAction'
 
 
 export default function ProjectCard({ cards, info, setIframe,setType , type  }) {
@@ -20,7 +20,9 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
     const deadLineRef = useRef()
     const progressRef = useRef() 
     const progressCRef = useRef()
+    
     const projectOne = useSelector((state) => state.ProjetcCreateReducerOne)
+    let todolist=[]
     useEffect(() => {
         console.log(projectOne);
         const deadline = (info.period - info.deadline) / info.period * 100
@@ -30,6 +32,8 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
         progressRef.current.style.width = "calc(242px*" + progressbar + ")"
     }, [])
 
+
+ 
 
     useEffect(() => {
         if (open) {
@@ -176,7 +180,6 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
         setAtivate(false)
         setUpdate(true)
         info.name=typ
-        console.log(info );
         dispatch(UpdateProject(info))
         
 
@@ -187,6 +190,7 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
         setAtivate(false)
         setUpdate(true)
     }
+
 
 
 
