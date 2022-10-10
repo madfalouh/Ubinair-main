@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import React from 'react';
 import ReactDOM from 'react-dom'
 export default function Background ({circles}) {
 const spanref = useRef()
