@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import e from 'express'
 import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
@@ -16,11 +17,13 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
     const [cancel, setCancel] = useState(false)
     const [save, setSave] = useState(false)
     const [typ, setTyp] = useState("")
+    const [file, setFile] = useState(null)
     const progressbar = info.progress / 100
     const deadLineRef = useRef()
     const progressRef = useRef() 
     const progressCRef = useRef()
-    
+    const token = sessionStorage.getItem("token")
+    const decoded_token = jwt_decode(token);
     const projectOne = useSelector((state) => state.ProjetcCreateReducerOne)
     let todolist=[]
     useEffect(() => {
@@ -191,7 +194,13 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
         setUpdate(true)
     }
 
+   const hundlechange = (e) => {
+    setFile(e)
+    let data = new FormData() 
+    data.append("id",decoded_token.id) ; 
+    data.append("file",file) ; 
 
+    }
 
 
 
@@ -252,7 +261,7 @@ export default function ProjectCard({ cards, info, setIframe,setType , type  }) 
                     <div className="red-line"    ></div>
                      <div className='file-liste-consigne' >
                     <ul className='file-liste' >
-                        <li onClick={e => { hundleClick1(e) }} id="0" ><div className='listimge' >  <div className='listimge-contanair' ><p>Charte graphic</p><img src={pdf} ></img>  </div> <button class="btn cancel"  id='btn'  ><img src={pdf} width={15} ></img> </button><button class="btn accept" id='btn'><img src={pdf} width={15} ></img></button><button class="btn update" id='btn'><img src={pdf} width={15} ></img></button> </div> </li>
+                        <li onClick={e => { hundleClick1(e) }} id="0" ><div className='listimge' >  <div className='listimge-contanair' ><p>Charte graphic</p><img src={pdf} ></img>  </div> <button class="btn cancel"  id='btn'  ><img src={pdf} width={15} ></img> </button><button class="btn accept" id='btn'><img src={pdf} width={15} ></img></button><input class="btn update" id='btn' type="file"  onChange={ (e)=>{ hundlechange(e.target.value)} } ></input> </div> </li>
                         <li onClick={e => { hundleClick1(e) }} id="1"><div className='listimge'  ><div className='listimge-contanair' ><p>Cahier de charge</p><img src={pdf} ></img></div><button class="btn cancel" id='btn'><img src={pdf} width={15} ></img></button><button class="btn accept" id='btn'><img src={pdf} width={15} ></img></button><button class="btn update " id='btn'><img src={pdf} width={15} ></img></button> </div> </li>
                         <li onClick={e => { hundleClick1(e) }} id="2"><div className='listimge'  ><div className='listimge-contanair' ><p>Contenu du site</p><img src={pdf} ></img></div><button class="btn cancel" id='btn'><img src={pdf} width={15} ></img></button><button class="btn accept" id='btn'><img src={pdf} width={15} ></img></button><button class="btn update" id='btn'><img src={pdf} width={15} ></img></button> </div></li>
                         <li onClick={e => { hundleClick1(e) }} id="3"><div className='listimge' ><div className='listimge-contanair' ><p>Images</p><img src={pdf} ></img></div><button class="btn cancel" id='btn'><img src={pdf} width={15} ></img></button><button class="btn accept" id='btn'><img src={pdf} width={15} ></img></button><button class="btn update" id='btn'><img src={pdf} width={15} ></img></button> </div></li>

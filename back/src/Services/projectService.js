@@ -50,5 +50,14 @@ name : project.name,
 })
 }catch(err){
 }
+},updateprojectFile : async function updateproject(project) {  
+    console.log(project.id );
+try{
+await Project.findByIdAndUpdate(project.id ,{ 
+name : project.name,  
+ },function (err, docs) {
+})
+}catch(err){
+}
 }
 }

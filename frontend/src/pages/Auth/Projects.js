@@ -11,7 +11,7 @@ import addText from '../../img/addText.png'
 import listimage from '../../img/listimage.png'
 import searchIcon from '../../img/search-icon.png'
 import filter from '../../img/filter.png'
-import { getUserDetails } from '../../redux/actions/usersAction'
+import { getUserDetails, updateUserStatus } from '../../redux/actions/usersAction'
 import jwt_decode from "jwt-decode";
 
 const Project = () => {
@@ -34,13 +34,14 @@ const Project = () => {
     const token = sessionStorage.getItem("token")
     const decoded_token = jwt_decode(token);
     const details = useSelector((state) => state.userDetailsReducer)
+    const userUpdate = useSelector((state) => state.updateUserStatus)
     const { projects } = getProjects
     const [searchTerm, setSearchTerm] = useState('')
     const [optionPrj, setOptionPrj] = useState(true)
     const [wantupdate, setWantupdate] = useState(false)
     const [todolist, setTodolist] = useState([])
     const [char, setChar] = useState([])
-    const bool =useRef(true)
+    const bool = useRef(true)
 
     useEffect(() => {
 
@@ -57,17 +58,19 @@ const Project = () => {
 
     useEffect(() => {
 
-        if (details.user != undefined && details.user._id != undefined && bool.current==true ) {
+        if (details.user != undefined && details.user._id != undefined && bool.current == true) {
 
-          console.log(details.user.todolist);
-          let arr = details.user.todolist.split('-'); 
-          let temp = []
-          arr.map((msg)=>{if(msg!=""){
-            console.log(msg);
-            temp.push(<li><div className='listimg'><img src={listimage}   ></img><p  >{msg}</p></div></li>)
-          }})
-          setTodolist(temp)
-          bool.current=false
+            console.log(details.user.todolist);
+            let arr = details.user.todolist.split('-');
+            let temp = []
+            arr.map((msg) => {
+                if (msg != "") {
+                    console.log(msg);
+                    temp.push(<li><div className='listimg'><img src={listimage}   ></img><p  >{msg}</p></div></li>)
+                }
+            })
+            setTodolist(temp)
+            bool.current = false
         }
     }, [details])
 
@@ -84,7 +87,7 @@ const Project = () => {
                 //console.log(Date.now()/date1.getTime());
                 console.log(one);
                 const info = {
-                    id : project._id ,
+                    id: project._id,
                     name: project.name,
                     price: project.price,
                     progress: project.progress,
@@ -136,7 +139,7 @@ const Project = () => {
             var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
             var period = Math.floor((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
             const info = {
-                id : project._id ,
+                id: project._id,
                 name: project.name,
                 price: project.price,
                 progress: project.progress,
@@ -159,7 +162,7 @@ const Project = () => {
             var date1 = new Date(project.deadline);
             var deadline = Math.floor((date1.getTime() - Date.now()) / (1000 * 3600 * 24));
             const info = {
-                id : project._id ,
+                id: project._id,
                 name: project.name,
                 price: project.price,
                 progress: project.progress,
@@ -222,24 +225,25 @@ const Project = () => {
     }
 
     const addtodo = () => {
-        
+
         let temp = todolist
-       
-           if(wantupdate==false){
-        todolist.push(<li><div className='listimg'><img src={listimage}   ></img><input name="ctl00$footContent$updateText" type="text"  onChange={(e)=>setChar(e.target.value)}  className={classNames("input-todo", {
-            
-        })} ></input></div></li>)
 
-        setWantupdate(true)
-    } else{
-        
-        let popped = todolist.pop();
+        if (wantupdate == false) {
+            todolist.push(<li><div className='listimg'><img src={listimage}   ></img><input name="ctl00$footContent$updateText" type="text" onChange={(e) => setChar(e.target.value)} className={classNames("input-todo", {
 
-        temp.push(<li><div className='listimg'><img src={listimage}   ></img><p  >{char}</p></div></li>)
+            })} ></input></div></li>)
 
-        setWantupdate(false)
-    }
-       // setTodolist(todolist)
+            setWantupdate(true)
+        } else {
+
+            let popped = todolist.pop();
+
+            temp.push(<li><div className='listimg'><img src={listimage}   ></img><p  >{char}</p></div></li>)
+            const creds = details.user.todolist + char + "-"
+            dispatch(updateUserStatus(decoded_token.id, creds))
+            setWantupdate(false)
+        }
+
 
     }
 
@@ -269,10 +273,10 @@ const Project = () => {
 
                     <div className='dashboard-select-button'>
                         <button className={classNames('ds-button-option', {
-                            "selected-option" : optionPrj
+                            "selected-option": optionPrj
                         })} value='pdf' onClick={() => setOptionPrj(true)}>Projets</button>
                         <button className={classNames('ds-button-option', {
-                            "selected-option" : !optionPrj
+                            "selected-option": !optionPrj
                         })} value='txt' onClick={() => setOptionPrj(false)}>Estimations</button>
 
                     </div>
@@ -306,7 +310,7 @@ const Project = () => {
                             <ul className='todo-text' >
                                 {todolist}
                             </ul>
-                            <img src={addText} className="add-text" onClick={addtodo}  style={{cursor :"pointer"}} ></img>
+                            <img src={addText} className="add-text" onClick={addtodo} style={{ cursor: "pointer" }} ></img>
                         </div>
                         <div className='contact' >
                             <div className='chat' >chat w/ PM</div>

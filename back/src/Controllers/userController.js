@@ -83,12 +83,6 @@ async function  updateuser (req , res) {
 console.log(req.body);
 const user =({
 id : req.body.id ,
-username : req.body.username  ,
-email :req.body.email,
-password :req.body.password,
-firstName :req.body.firstName,
-lastName :req.body.lastName,
-type:req.body.type ,
 todolist : req.body.todolist
 })
 try{

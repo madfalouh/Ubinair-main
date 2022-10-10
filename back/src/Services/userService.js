@@ -57,17 +57,14 @@ await User.deleteOne({_id:id})
 }catch(err){
 console.log(err)
 }
-}, updateuser : async function updateuser(user) {
-const password = await Encryption.cryptPassword(user.password)    
+}, updateuser : async function updateuser(user) {  
+
+console.log(user.id);
+console.log(user.id);
+
 try{
 await User.findByIdAndUpdate(user.id ,{ 
-username : user.username,  
-email :user.email ,
-password :password ,
-firstName:user.firstName ,
-lastName: user.lastName,
-type : user.type,
-todolist : req.todolist
+todolist : user.todolist
  },function (err, docs) {
 })
 }catch(err){

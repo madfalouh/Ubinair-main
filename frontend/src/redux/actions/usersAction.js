@@ -80,38 +80,36 @@ export const getUserDetails = (id) => async (dispatch) => {
 
 
 export const updateUserStatus =
-    (id, checkAdmin, client) => async (dispatch, getState) => {
+    (id, creds) => async (dispatch) => {
         try {
             dispatch({
                 type: UPDATE_USERSTATUS_REQUEST,
             })
-            toast.dismiss()
-            toast.loading('Please wait...', {
-                position: toast.POSITION.TOP_CENTER,
-            })
-            const { token } = getState()
-const tokenn = localStorage.getItem("token")
+       
+
             const config = {
                 headers: {
-                    Authorization: tokenn,
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
                 },
             }
 
-            const { data } = await axios.patch(
-                `/user/update_role/${id}`,
-                {
-                    role: checkAdmin ? 1 : 0,
-                    client,
-                },
-                config
-            )
+             await axios(
+                        {
+                    method : "post" ,
+                    url : 'http://localhost:3000/users/update' , 
+                    headers : config.headers ,
+                    data : {
+                                id :id ,
+                                todolist: creds
+
+}
+                    }
+
+                    )
 
             dispatch({
                 type: UPDATE_USERSTATUS_SUCCESS,
-            })
-            toast.dismiss()
-            toast.success('Succès Update !', {
-                position: toast.POSITION.TOP_CENTER,
             })
         } catch (error) {
             dispatch({
