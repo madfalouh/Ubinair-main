@@ -37,7 +37,9 @@ const Project = () => {
     const { projects } = getProjects
     const [searchTerm, setSearchTerm] = useState('')
     const [optionPrj, setOptionPrj] = useState(true)
+    const [wantupdate, setWantupdate] = useState(false)
     const [todolist, setTodolist] = useState([])
+    const [char, setChar] = useState([])
     const bool =useRef(true)
 
     useEffect(() => {
@@ -219,7 +221,27 @@ const Project = () => {
         popupOpen.classList.remove("open");
     }
 
-    
+    const addtodo = () => {
+        
+        let temp = todolist
+       
+           if(wantupdate==false){
+        todolist.push(<li><div className='listimg'><img src={listimage}   ></img><input name="ctl00$footContent$updateText" type="text"  onChange={(e)=>setChar(e.target.value)}  className={classNames("input-todo", {
+            
+        })} ></input></div></li>)
+
+        setWantupdate(true)
+    } else{
+        
+        let popped = todolist.pop();
+
+        temp.push(<li><div className='listimg'><img src={listimage}   ></img><p  >{char}</p></div></li>)
+
+        setWantupdate(false)
+    }
+       // setTodolist(todolist)
+
+    }
 
 
     return (
@@ -244,12 +266,7 @@ const Project = () => {
                 <p className='dashboard-text' > Dashboard </p>
 
                 <div className='header-element' >
-                    {/* <div className='projects'>
-                           <select name="format" id="format">
-                            <option value="pdf">Project</option>
-                            <option value="txt">Estimation</option>
-                            </select>
-                    </div> */}
+
                     <div className='dashboard-select-button'>
                         <button className={classNames('ds-button-option', {
                             "selected-option" : optionPrj
@@ -289,7 +306,7 @@ const Project = () => {
                             <ul className='todo-text' >
                                 {todolist}
                             </ul>
-                            <img src={addText} className="add-text" ></img>
+                            <img src={addText} className="add-text" onClick={addtodo}  style={{cursor :"pointer"}} ></img>
                         </div>
                         <div className='contact' >
                             <div className='chat' >chat w/ PM</div>
